@@ -11,7 +11,7 @@ use App\Models\Donation; // Import Donation model
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
