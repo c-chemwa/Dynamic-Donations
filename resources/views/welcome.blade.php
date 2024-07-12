@@ -25,6 +25,160 @@
             padding: 0;
         }
 
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full screen height */
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            animation: slide 15s infinite;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-100%);
+            }
+
+            45% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(-200%);
+            }
+
+            70% {
+                transform: translateX(-200%);
+            }
+
+            75% {
+                transform: translateX(-300%);
+            }
+
+            95% {
+                transform: translateX(-300%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .slider-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .slider-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-family: 'Kaushan Script', cursive;
+        }
+
+        .slider-content p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .about-section {
+            background-color: #96663e;
+            padding: 40px;
+            border-radius: 5px;
+            margin-top: 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-section h3 {
+            font-size: 60px;
+            color: #633f21;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: Chalkduster;
+            margin-top: 0;
+        }
+
+        .about-section p {
+            font-size: 24px;
+            color: #96663e;
+            flex: 1;
+            margin-left: 50px;
+            margin-right: 25px;
+            font-family: "Telugu MN";
+            text-align: justify;
+        }
+
+        .about-section img {
+            max-width: 50%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #96663e;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .cta-section h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: Chalkduster;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            background-color: #fff;
+            color: #633f21;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: "Telugu MN";
+        }
+
         /* Main Content Styles */
         .main-content {
             padding: 20px;
@@ -156,6 +310,13 @@
             /* Add space between image and text */
             margin-left: 20px;
             /* Add space between image and text */
+        }
+
+        .about-content {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         .numbers-section {
@@ -442,20 +603,22 @@
             </div>
             <div class="slider-content">
                 <h1>Welcome to Dynamic Donations</h1>
-                <p>Your trusted partner in donation management</p>
+                <p>Your trusted partner in donation management!</p>
             </div>
         </div>
 
         <!-- About Us section -->
         <section class="about-section" id="About-Us">
-            <h3>Heard About Us?</h3>
-            <img src="{{ asset('img/charity.jpg') }}" alt="About Us">
-            <p>
-                Dynamic Donations is a dedicated platform to streamline the process of donations.
-                We ensure that your contributions reach the right hands efficiently and effectively.
-                Join us in making a difference, one donation at a time.
-                Your generosity can change lives and bring smiles to those in need.
-            </p>
+            <h3><strong>Heard About Us?</strong> </h3>
+            <div class="about-content">
+                <img src="{{ asset('img/charity.jpg') }}" alt="About Us" style="margin: 10px;">
+                <p style="margin: 20px;">
+                    Dynamic Donations is a dedicated platform to streamline the process of donations.
+                    <br>ensure that your contributions reach the right hands efficiently and effectively.
+                    <br>Join us in making a difference, one donation at a time.
+                    <br>Your generosity can change lives and bring smiles to those in need.
+                </p>
+            </div>
         </section>
 
 
