@@ -555,6 +555,11 @@
                 </div>
             </div>
         </section>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Make a Difference?</h2>
+            <a href="{{ route('register') }}">Get Started</a>
+        </section>
 
 
         <!-- Footer -->
