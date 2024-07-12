@@ -412,21 +412,18 @@ body {
 
 
 <main>
-    <div class="main-content" id="welcome">
-        <div class="welcome-section">
-            <div class="text">
-                <h2>We Are <br> Dynamic Donations</h2>
-                <p>A Donations Management Tool <br> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                <br> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="{{ route('register') }}" class="get-started-btn">Get Started</a>
-            </div>
-
-            <div class="image">
-                <img src="{{ asset('img/children-img.jpg') }}" alt="" >
-            </div>
-
-            <div id="welcome-background-overlay"></div>
-        </div>
+   <!-- Slider Carousel -->
+<div class="slider-container">
+    <div class="slider">
+        <img src="{{ asset('img/slide1.jpg') }}" alt="Slide 1">
+        <img src="{{ asset('img/slide2.jpg') }}" alt="Slide 2">
+        <img src="{{ asset('img/slide3.jpg') }}" alt="Slide 3">
+    </div>
+    <div class="slider-content">
+        <h1>Welcome to Dynamic Donations</h1>
+        <p>Your trusted partner in donation management</p>
+    </div>
+</div>
 
         <!-- About Us section -->
     <section class="about-section" id="About-Us">
