@@ -316,7 +316,9 @@
             align-items: center;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .numbers-section {
