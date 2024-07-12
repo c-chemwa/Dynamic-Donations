@@ -17,7 +17,6 @@ use App\Livewire\Admin\ViewNeeds;
 use App\Livewire\Admin\ViewUsers;
 use App\Livewire\VolunteerSignUp;
 use App\Livewire\VolunteerOpportunities;
-use App\Livewire\Admin\AdminEditUser;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,10 +51,6 @@ Route::get('/paypal-success', [DonateForm::class, 'success'])->name('paypal.succ
 Route::get('/paypal-cancel', [DonateForm::class, 'cancel'])->name('paypal.cancel');
 
 
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/edit-user/{id}', AdminEditUser::class)->name('admin.edit-user');
-});
 
 
 Route::get('/logout', function () {
