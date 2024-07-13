@@ -17,7 +17,7 @@
         <style>
             body {
                 font-family: 'Roboto', sans-serif;
-                background-color: #633f21;
+                background-color: #96663e;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -27,7 +27,7 @@
             }
 
             .login-container {
-                background-color: #96663e;
+                background-color: #f4f4f4;
                 padding: 40px;
                 border-radius: 10px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
@@ -63,7 +63,7 @@
                 width: 100%;
                 padding: 10px;
                 background-color: #333;
-                color: #fff;
+                color: #f4f4f4;
                 border: none;
                 border-radius: 5px;
                 font-size: 16px;

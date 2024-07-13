@@ -18,8 +18,8 @@
 </head>
 
 <body class="font-sans text-primary antialiased">
-    <div
-        class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-secondary dark:bg-secondary-dark">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-secondary dark:bg-secondary-dark"
+        style="padding: 20px;" style="border-radius: 20px;">
         <div>
             <a href="/">
                 <img src="{{ asset('/img/logo-black.png') }}" type="image/png"alt="" height="80px" width="80px"
