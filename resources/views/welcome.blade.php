@@ -564,14 +564,18 @@
             </label>
 
             {{-- Brand --}}
-            <div>
-                <h1>Dynamic Donations</h1>
+            <div style="display: flex;" style="flex-direction: row;" style="justify-content: center;">
+                <a href="#index.php"><img src="{{ asset('img/logo-black.png') }}" alt="About Us" style="margin: 0 20px;"
+                        height="40px" width="20px"></a>
+                <a href="#index.php">
+                    <h1 style="font-family: KaushanScript, sans-serif"><strong>Dynamic Donations</strong></h1>
+                </a>
             </div>
         </x-slot:brand>
 
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="Home" link="" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Home" link="#index.php" class="btn-ghost btn-sm text-primary" responsive />
             <x-mary-button label="About Us" link="#About-Us" class="btn-ghost btn-sm text-primary" responsive />
             <x-mary-button label="Reviews" link="#Reviews" class="btn-ghost btn-sm text-primary" responsive />
             <x-mary-button label="Contact Us" link="#Contact-Us" class="btn-ghost btn-sm text-primary" responsive />
