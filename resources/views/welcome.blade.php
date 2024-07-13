@@ -631,8 +631,8 @@
                 <p>Institutions that have benefited.</p>
             </div>
             <div class="number-card">
-                <h3><span> 0 </span>+</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <h3><span> 1000 </span>+</h3>
+                <p>Children supported.</p>
             </div>
         </div>
 
