@@ -12,7 +12,7 @@
                 @endif
                 <x-mary-menu-item title="Profile" icon="o-eye" link="/dash-profile" />
                 <x-mary-menu-item title="History" icon="o-clock" link="/history" />
-                <x-mary-menu-item title="Notifications" icon="o-cog-6-tooth" link="/notifications" />
+                <x-mary-menu-item title="Notifications" icon="o-bell" link="/notifications" />
                 <x-mary-menu-item title="Donate" icon="o-gift" link="/donate-form" />
                 <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
                     <x-mary-menu-item title="Log out" icon="o-power" link="/logout" />
@@ -23,7 +23,29 @@
             </x-mary-menu>
         </x-slot:sidebar>
 
-        {{-- CONTENT --}}
+        <x-slot name="content">
+            <x-mary-header title="BLOG" with-anchor separator />
+        
+            <div class="grid gap-6 ">
+                @foreach($blogs as $blog)
+                    <div class="shadow-md rounded-lg p-6 w-full flex flex-col">
+                        <h2 class="text-4xl text-primary font-bold mb-4">{{ $blog->title }}</h2>
+                        @if($blog->photo_path)
+                            <img src="{{ Storage::url($blog->photo_path) }}" alt="{{ $blog->title }}" class="w-full h-auto object-cover mb-4 rounded-lg">
+                        @endif
+                        <div class="flex-grow overflow-auto">
+                            <!-- Use nl2br and e for preserving spaces and line breaks -->
+                            <p class="text-gray">{!! nl2br(e($blog->content)) !!}</p>
+                        </div>
+                        {{-- <a href="{{ route('blog-name', $blog->id) }}" class="text-blue-600 hover:text-blue-800 font-semibold mt-auto">Read more</a> --}}
+                    </div>
+                @endforeach
+            </div>
+        
+            {{ $blogs->links() }}
+        </x-slot>
+        
+        {{-- CONTENT
         <x-slot:content>
             <div class="max-w-4xl mx-auto py-8">
                 <h1 class="text-3xl font-bold mb-4 text-primary">Our Journey: Nurturing Hope and Happiness</h1>
@@ -47,6 +69,6 @@
             </div>
             
             
-        </x-slot:content>
+        </x-slot:content> --}}
     </x-mary-main>
 </div>

@@ -23,7 +23,72 @@
     </x-slot:sidebar>
 
     <x-slot name="content">
-    If you look to others for fulfillment, you will never truly be fulfilled.
+        @php
+            $blogss = \App\Models\Blog::all();
+
+            $headers = [
+                ['key' => 'id', 'label' => '#'],
+                ['key' => 'title', 'label' => 'Title'],
+                ['key' => 'content', 'label' => 'Content'],
+                ['key' => 'actions', 'label' => 'Actions'],
+            ];
+        @endphp
+
+        <x-mary-header title="BLOGS" with-anchor separator class="text-primary"/>
+        <x-mary-button label="Add Blog" icon="o-plus" wire:click="create" class="btn bg-primary text-white" /> 
+        <x-mary-table :headers="$headers" :rows="$blogs" striped >
+            @foreach($blogs as $blog)
+                @scope('actions', $blog)
+                <div class="flex">
+                    @if($blog->photo_path)
+                            <img src="{{ Storage::url($blog->photo_path) }}" alt="{{ $blog->title }}" width="50">
+                        @endif
+                </div>
+                <div class="flex">
+
+                    <x-mary-button icon="o-trash" wire:click="delete({{ $blog->id }})" spinner class="btn-sm" />
+                    <x-mary-button icon="o-pencil" wire:click="edit({{ $blog->id }})" spinner class="btn-sm" />
+                </div>
+                @endscope
+            @endforeach
+        </x-mary-table>
+
+                    {{-- @foreach($blogs as $blog)
+                        <tr>
+                            <td>{{ $blog->title }}</td>
+                            <td>{{ Str::limit($blog->content, 50) }}</td>
+                            <td>
+                                <x-mary-button icon="o-pencil" wire:click="edit({{ $blog->id }})" class="btn-sm bg-primary" />
+                                <x-mary-button icon="o-trash" wire:click="delete({{ $blog->id }})" class="btn-sm bg-danger" />
+                            </td>
+                        </tr>
+                    @endforeach --}}
+        
+            <x-mary-modal title="Add Blog" wire:model="showCreateModal">
+                <x-mary-form wire:submit.prevent="store">
+                    <x-mary-input wire:model="title" label="Title" />
+                    <x-mary-textarea wire:model="content" label="Content" />
+                    <x-mary-file wire:model="photo" label="Photo" />
+        
+                    <x-slot:actions>
+                        <x-mary-button wire:click="$set('showCreateModal', false)" label="Cancel" class="btn btn-primary" />
+                        <x-mary-button type="submit" label="Save" class="btn btn-success" />
+                    </x-slot:actions>
+                </x-mary-form>
+            </x-mary-modal>
+        
+            <x-mary-modal title="Edit Blog" wire:model="showEditModal">
+                <x-mary-form wire:submit.prevent="update">
+                    <x-mary-input wire:model="title" label="Title" />
+                    <x-mary-textarea wire:model="content" label="Content" />
+                    <x-mary-file wire:model="photo" label="Photo" />
+        
+                    <x-slot:actions>
+                        <x-mary-button wire:click="$set('showEditModal', false)" label="Cancel" class="btn btn-primary" />
+                        <x-mary-button type="submit" label="Save" class="btn btn-success" />
+                    </x-slot:actions>
+                </x-mary-form>
+            </x-mary-modal>
     </x-slot>
     
     </x-mary-main>

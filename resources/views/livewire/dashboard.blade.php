@@ -287,10 +287,10 @@
 
             {{-- Right side actions --}}
             <x-slot:actions>
-                <x-mary-button label="Home" link="" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="About Us" link="#About-Us" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="Reviews" link="#Reviews" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="Contact Us" link="#Contact-Us" class="btn-ghost btn-sm text-primary" responsive />
+                <x-mary-button label="Need Catalogue" link="{{ route('needs') }}" class="btn-ghost btn-sm text-primary" responsive />
+                <x-mary-button label="Donate" link="{{ route('donate-form') }}" class="btn-ghost btn-sm text-primary" responsive />
+                <x-mary-button label="Blog" link="{{ route('blog-name') }}" class="btn-ghost btn-sm text-primary" responsive />
+                {{-- <x-mary-button label="Contact Us" link="#Contact-Us" class="btn-ghost btn-sm text-primary" responsive /> --}}
             </x-slot:actions>
         </x-mary-nav>
 
@@ -315,7 +315,7 @@
                     <x-mary-menu-item title="Profile" icon="o-eye" link="/dash-profile" />
                     <x-mary-menu-item title="History" icon="o-clock" link="/history" />
                     <x-mary-menu-item title="Notifications" icon="o-bell" link="/notifications" />
-                    <x-mary-menu-item title="Needs" icon="o-gift" link="/needs" />
+                    <x-mary-menu-item title="Donate" icon="o-gift" link="/donate-form" />
                     <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
                         <x-mary-menu-item title="Log out" icon="o-power" link="/logout" />
                         <x-mary-menu-item title="Change Theme" icon="o-moon">
@@ -415,14 +415,14 @@
                     <!-- Footer -->
                     <footer class="footer">
                         <div class="footer-logo">
-                            <img src="{{ asset('img/') }}" alt="Logo">
+                            <img src="{{ asset('img/dynamic_donations_logo') }}" alt="Logo">
                         </div>
                         <div class="footer-links">
                             <ul>
                                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                 <li><a href="{{ route('needs') }}">Need Catalogue</a></li>
                                 <li><a href="{{ route('donate-form') }}">Donate</a></li>
-                                <li><a href="{{ route('blog') }}">Blog</a></li>
+                                <li><a href="{{ route('blog-name') }}">Blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-location">

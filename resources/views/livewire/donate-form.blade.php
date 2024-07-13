@@ -12,7 +12,7 @@
                 @endif
                 <x-mary-menu-item title="Profile" icon="o-eye" link="/dash-profile" />
                 <x-mary-menu-item title="History" icon="o-clock" link="/history" />
-                <x-mary-menu-item title="Notifications" icon="o-cog-6-tooth" link="/notifications" />
+                <x-mary-menu-item title="Notifications" icon="o-bell" link="/notifications" />
                 <x-mary-menu-item title="Donate" icon="o-gift" link="/donate-form" />
                 <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
                     <x-mary-menu-item title="Log out" icon="o-power" link="/logout" />
