@@ -350,14 +350,21 @@
             color: #96663e;
         }
 
+        .testimony {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 400%;
+        }
+
         .testimonials-container {
             display: flex;
-            overflow: hidden;
-            animation: slideCards 60s linear infinite;
-            /* Add CSS animation to slide the cards */
+            width: 200%;
+            animation: slideCards 30s linear infinite;
         }
 
         .testimonial-card {
+            flex: 0 0 calc(18% - 20px);
             display: inline-block;
             width: calc(33.33% - 20px);
             padding: 20px;
@@ -389,7 +396,7 @@
             }
 
             99.99% {
-                transform: translateX(-100%);
+                transform: translateX(-50%);
             }
 
             100% {
@@ -624,62 +631,123 @@
         <!-- Testimonials-->
         <section class="testimonials-section" id="Reviews">
             <h2>Reviews</h2>
-            <div class="testimonials-container"> <!-- Wrapper for the testimonial cards -->
-                <div class="testimonial-card">
-                    <!-- Testimonial content for the first card -->
-                    <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 1" class="profile-picture">
-                    <div class="testimonial-text">
-                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,
-                            omnis repudiandae hic nobis aliquid. Ut, obcaecati deleniti. magni architecto labore
-                            molestias,
-                            lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,"</p>
-                        <p class="testimonial-author">- John Doe</p>
+            <div class="testimony">
+                <div class="testimonials-container"> <!-- Wrapper for the testimonial cards -->
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the first card -->
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 1" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,
+                                omnis repudiandae hic nobis aliquid. Ut, obcaecati deleniti. magni architecto labore
+                                molestias,
+                                lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,"</p>
+                            <p class="testimonial-author">- John Doe</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the second card -->
+                        <img src="{{ asset('img/prof-pic-specs.png') }}" alt="Profile 2" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Jack Doe</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the third card -->
+                        <img src="{{ asset('img/anime-prof-pic.png') }}" alt="Profile 3" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Mike Johnson</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 4" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Sarah Wilson</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 5" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Alex Johnson</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="testimonial-card">
-                    <!-- Testimonial content for the second card -->
-                    <img src="{{ asset('img/prof-pic-specs.png') }}" alt="Profile 2" class="profile-picture">
-                    <div class="testimonial-text">
-                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                            rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                            molestias,
-                            voluptatum sit. Quod eum nemo corrupti excepturi."</p>
-                        <p class="testimonial-author">- Jack Doe</p>
+                <div class="testimonials-container"> <!-- Wrapper for the testimonial cards -->
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the first card -->
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 1" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,
+                                omnis repudiandae hic nobis aliquid. Ut, obcaecati deleniti. magni architecto labore
+                                molestias,
+                                lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,"</p>
+                            <p class="testimonial-author">- John Doe</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="testimonial-card">
-                    <!-- Testimonial content for the third card -->
-                    <img src="{{ asset('img/anime-prof-pic.png') }}" alt="Profile 3" class="profile-picture">
-                    <div class="testimonial-text">
-                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                            rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                            molestias,
-                            voluptatum sit. Quod eum nemo corrupti excepturi."</p>
-                        <p class="testimonial-author">- Mike Johnson</p>
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the second card -->
+                        <img src="{{ asset('img/prof-pic-specs.png') }}" alt="Profile 2" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Jack Doe</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="testimonial-card">
-                    <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 4" class="profile-picture">
-                    <div class="testimonial-text">
-                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                            rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                            molestias,
-                            voluptatum sit. Quod eum nemo corrupti excepturi."</p>
-                        <p class="testimonial-author">- Sarah Wilson</p>
+                    <div class="testimonial-card">
+                        <!-- Testimonial content for the third card -->
+                        <img src="{{ asset('img/anime-prof-pic.png') }}" alt="Profile 3" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Mike Johnson</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="testimonial-card">
-                    <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 5" class="profile-picture">
-                    <div class="testimonial-text">
-                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                            rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                            molestias,
-                            voluptatum sit. Quod eum nemo corrupti excepturi."</p>
-                        <p class="testimonial-author">- Alex Johnson</p>
+                    <div class="testimonial-card">
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 4" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Sarah Wilson</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 5" class="profile-picture">
+                        <div class="testimonial-text">
+                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
+                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
+                                molestias,
+                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p class="testimonial-author">- Alex Johnson</p>
+                        </div>
                     </div>
                 </div>
             </div>
