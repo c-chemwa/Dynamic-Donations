@@ -30,6 +30,7 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
+            display: inline-block;
         }
 
         .slider {
@@ -387,8 +388,12 @@
                 transform: translateX(0);
             }
 
-            100% {
+            99.99% {
                 transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
             }
         }
 
