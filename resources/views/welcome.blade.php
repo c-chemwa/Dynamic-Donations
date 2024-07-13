@@ -631,7 +631,7 @@
                 <p>Institutions that have benefited.</p>
             </div>
             <div class="number-card">
-                <h3><span> 1000 </span>+</h3>
+                <h3><span> 1,000 </span>+</h3>
                 <p>Children supported.</p>
             </div>
         </div>
@@ -791,7 +791,7 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-logo">
-                <img src="img\logo-text-white.png" alt="Logo">
+                <a href="#index.php"><img src="img\logo-text-white.png" alt="Logo"></a>
             </div>
             <div class="footer-links">
                 <ul>
