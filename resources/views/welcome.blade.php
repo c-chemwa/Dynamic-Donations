@@ -407,6 +407,10 @@
         .contact-and-location {
             display: flex;
             justify-content: space-between;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
         }
 
         .contact-form {
@@ -416,6 +420,8 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            text-align: center;
+            width: 50%;
         }
 
         .contact-form h2 {
