@@ -24,48 +24,41 @@
         </x-slot:sidebar>
 
         {{-- CONTENT --}}
-        <x-slot:content>
-            <div class="flex-1">
-                <div class="content-wrapper p-6">
-                    @if($donations->isNotEmpty())
-                        <div class="p-4">
-                            <h2 class="font-semibold text-primary mb-4">Donation History</h2>
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <table class="min-w-full">
-                                    <thead class="bg-primary text-white">
-                                        <tr>
-                                            <th class="py-2 px-4">Date</th>
-                                            <th class="py-2 px-4">Quantity</th>
-                                            <th class="py-2 px-4">Unit</th>
-                                            <th class="py-2 px-4">Status</th>
-                                            <th class="py-2 px-4">Comments</th>
-                                            {{-- Add Action column headers if needed --}}
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-secondary">
-                                        @foreach($donations as $donation)
-                                            <tr class="border-b border-gray-200">
-                                                <td class="py-3 px-4">{{ $donation->donation_date->format('M d, Y') }}</td>
-                                                <td class="py-3 px-4">{{ $donation->quantity }}</td>
-                                                <td class="py-3 px-4">{{ $donation->unit }}</td>
-                                                <td class="py-3 px-4">{{ $donation->status }}</td>
-                                                <td class="py-3 px-4">{{ $donation->comments ?: '-' }}</td>
-                                                {{-- Add Action column if needed --}}
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    @else
-                        <div class="p-4">
-                            <h2 class="font-semibold text-primary">Donation History</h2>
-                            <p class="mt-4 text-secondary">You have not made any donations yet.</p>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </x-slot:content>
-
+        <x-slot name="content">
+            @php
+            $donations = \App\Models\Donation::with(['user', 'need'])
+                ->where('user_id', auth()->id())
+                ->get();
+        
+            $headers = [
+                // ['key' => 'user.name', 'label' => 'Name'],
+                ['key' => 'need.need_name', 'label' => 'Need'],
+                ['key' => 'donation_date', 'label' => 'Date'],
+                ['key' => 'quantity', 'label' => 'Quantity'],
+                ['key' => 'unit', 'label' => 'Unit'],
+                ['key' => 'status', 'label' => 'Status'],
+                ['key' => 'receipt_sent', 'label' => 'Receipt Sent'],
+                ['key' => 'comments', 'label' => 'Comments'],
+                // ['key' => 'admin_approved', 'label' => 'Approval'],
+            ];
+            @endphp
+        
+            <x-mary-header title="DONATIONS" with-anchor separator />
+            <x-mary-table :headers="$headers" :rows="$donations" striped>
+                @foreach($donations as $donation)
+                    <tr>
+                        <td>{{ $donation->user->name }}</td>
+                        <td>{{ $donation->need->need_name }}</td>
+                        <td>{{ $donation->donation_date }}</td>
+                        <td>{{ $donation->quantity }}</td>
+                        <td>{{ $donation->unit }}</td>
+                        <td>{{ $donation->status }}</td>
+                        <td>{{ $donation->receipt_sent ? 'Yes' : 'No' }}</td>
+                        <td>{{ $donation->comments }}</td>
+                       // <td>{{ $donation->admin_approved ? 'Approved' : 'Pending' }}</td>
+                    </tr>
+                @endforeach
+            </x-mary-table>
+        </x-slot>
     </x-mary-main>
 </div>

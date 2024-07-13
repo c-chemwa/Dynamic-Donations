@@ -5,29 +5,27 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Notification;
+use App\Models\Donation;
 
 class Notifications extends Component
-{
-    public $notifications;
+{public $notifications = [];
 
     public function mount()
     {
-        $this->notifications = Auth::user()->notifications()->orderBy('created_at', 'desc')->get();
+        $this->fetchNotifications();
     }
 
-    public function markAsRead($notificationId)
+    public function fetchNotifications()
     {
-        $notification = Notification::find($notificationId);
-        if ($notification && $notification->notifiable_id == Auth::id()) {
-            $notification->markAsRead();
-            $this->notifications = Auth::user()->notifications()->orderBy('created_at', 'desc')->get();
-        }
+        $this->notifications = Donation::where('user_id', Auth::id())
+                            ->where('admin_approved', true)
+                            ->where('status', 'approved')
+                            ->orderBy('created_at', 'desc')
+                            ->get();
     }
 
     public function render()
     {
-        return view('livewire.notifications', [
-            'notifications' => $this->notifications,
-        ]);
+        return view('livewire.notifications', ['notifications' => $this->notifications]);
     }
 }

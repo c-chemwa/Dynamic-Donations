@@ -29,31 +29,53 @@
             </x-mary-menu>
         </x-slot:sidebar>
         
+        {{-- CONTENT --}}
         <x-slot:content>
+            @foreach($notifications as $notification)
+                <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
+                    <div class="flex">
+                        <div class="py-1">
+                            <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold">Your Donation has been Received!</p>
+                            <p class="text-sm">
+                                Thank you so much for your generosity. 
+                                <a href="{{ route('history') }}" class="text-blue-500 underline">Click here to view details.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+        </x-slot:content>
+        {{-- <x-slot:content>
             
 
-        <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
-            <div class="flex">
-                <div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/></svg></div>
-                <div>
-                    <p class="font-bold">Your Donation has been Received!</p>
-                    <p class="text-sm">Thank you so much for your generosity. <a href="{{ route('history') }}" class="text-blue-500 underline">Click here to view details.</a></p>
+                <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
+                    <div class="flex">
+                        <div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/></svg></div>
+                        <div>
+                            <p class="font-bold">Your Donation has been Received!</p>
+                            <p class="text-sm">Thank you so much for your generosity. <a href="{{ route('history') }}" class="text-blue-500 underline">Click here to view details.</a></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="mt-4 bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md" role="alert">
-            <div class="flex">
-                <div class="py-1"><svg class="fill-current h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm0-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-9.5V5h-1v5h1zm0 2v-1h-1v1h1z"/></svg></div>
-                <div>
-                    <p class="font-bold">Action Needed: Update Your Profile Information</p>
-                    <p class="text-sm">It looks like some of your profile information is outdated. Please take a moment to <a href="{{ route('dash-profile') }}" class="text-yellow-500 underline">update your details here.</a></p>
+                
+                <div class="mt-4 bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md" role="alert">
+                    <div class="flex">
+                        <div class="py-1"><svg class="fill-current h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm0-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-9.5V5h-1v5h1zm0 2v-1h-1v1h1z"/></svg></div>
+                        <div>
+                            <p class="font-bold">Action Needed: Update Your Profile Information</p>
+                            <p class="text-sm">It looks like some of your profile information is outdated. Please take a moment to <a href="{{ route('dash-profile') }}" class="text-yellow-500 underline">update your details here.</a></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
         
             
-        </x-slot:content>
+        </x-slot:content> --}}
 
     </x-mary-main>
 </div>
