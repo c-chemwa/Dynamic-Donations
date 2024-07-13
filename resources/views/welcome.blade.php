@@ -30,7 +30,6 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            /* Full screen height */
             overflow: hidden;
         }
 
@@ -51,36 +50,24 @@
                 transform: translateX(0);
             }
 
-            20% {
+            33.33% {
                 transform: translateX(0);
             }
 
-            25% {
+            33.34% {
                 transform: translateX(-100%);
             }
 
-            45% {
+            66.66% {
                 transform: translateX(-100%);
             }
 
-            50% {
+            66.67% {
                 transform: translateX(-200%);
-            }
-
-            70% {
-                transform: translateX(-200%);
-            }
-
-            75% {
-                transform: translateX(-300%);
-            }
-
-            95% {
-                transform: translateX(-300%);
             }
 
             100% {
-                transform: translateX(0);
+                transform: translateX(-200%);
             }
         }
 
@@ -567,7 +554,9 @@
             </label>
 
             {{-- Brand --}}
-            <div>Dynamic Donations</div>
+            <div>
+                <h1>Dynamic Donations</h1>
+            </div>
         </x-slot:brand>
 
         {{-- Right side actions --}}
@@ -599,9 +588,9 @@
         <!-- Slider Carousel -->
         <div class="slider-container">
             <div class="slider">
-                <img src="{{ asset('img/slide1.jpg') }}" alt="Slide 1">
-                <img src="{{ asset('img/slide2.jpg') }}" alt="Slide 2">
-                <img src="{{ asset('img/slide3.jpg') }}" alt="Slide 3">
+                <img src="{{ asset('img/children-eating.jpg') }}" alt="Slide 1">
+                <img src="{{ asset('img/happy-children.jpg') }}" alt="Slide 2">
+                <img src="{{ asset('img/children-running.jpg') }}" alt="Slide 3">
             </div>
             <div class="slider-content">
                 <h1>Welcome to Dynamic Donations</h1>
