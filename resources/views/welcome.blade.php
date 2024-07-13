@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="{{ asset('/img/logo-white.png') }}" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -789,7 +790,7 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-logo">
-                <img src="images/_Pngtree_medical_health_logo_4135858-removebg-preview.png" alt="Logo">
+                <img src="img\logo-text-white.png" alt="Logo">
             </div>
             <div class="footer-links">
                 <ul>
