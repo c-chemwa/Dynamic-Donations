@@ -612,7 +612,8 @@
         <section class="about-section" id="About-Us">
             <h3><strong>Heard About Us?</strong> </h3>
             <div class="about-content">
-                <img src="{{ asset('img/charity.jpg') }}" alt="About Us" style="margin: 10px;">
+                <img src="{{ asset('img/logo-black.png') }}" alt="About Us" style="margin: 80px;" height="100px"
+                    width="100px">
                 <p style="margin: 20px;">
                     Dynamic Donations is a dedicated platform to streamline the process of donations.
                     <br>ensure that your contributions reach the right hands efficiently and effectively.
