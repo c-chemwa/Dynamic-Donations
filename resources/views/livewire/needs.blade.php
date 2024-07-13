@@ -55,10 +55,10 @@
 
             <x-mary-modal title="Donate" wire:model="showEditModal">
                 <x-mary-form wire:submit.prevent="makeDonation">
-                    <x-mary-input wire:model="donation_date" readonly />
-                    <x-mary-input wire:model="quantity" readonly />
-                    <x-mary-input wire:model="status" readonly />
-                    <x-mary-input wire:model="comments" readonly type="textarea" />
+                    <x-mary-input wire:model="donation_date" />
+                    <x-mary-input wire:model="quantity" />
+                    <x-mary-input wire:model="status" />
+                    <x-mary-input wire:model="comments" type="textarea" />
 
                     <x-slot:actions>
                         <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
