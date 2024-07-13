@@ -25,7 +25,6 @@
             padding: 0;
         }
 
-        /* Slider Styles */
         .slider-container {
             position: relative;
             width: 100%;
@@ -36,7 +35,7 @@
         .slider {
             display: flex;
             width: 300%;
-            animation: slide 15s infinite;
+            animation: slide 30s infinite linear;
         }
 
         .slider img {
@@ -50,24 +49,16 @@
                 transform: translateX(0);
             }
 
-            33.33% {
-                transform: translateX(0);
+            50% {
+                transform: translateX(-33.33%);
             }
 
-            33.34% {
-                transform: translateX(-100%);
-            }
-
-            66.66% {
-                transform: translateX(-100%);
-            }
-
-            66.67% {
-                transform: translateX(-200%);
+            99.99% {
+                transform: translateX(-66.66%);
             }
 
             100% {
-                transform: translateX(-200%);
+                transform: translateX(0);
             }
         }
 
@@ -588,9 +579,9 @@
         <!-- Slider Carousel -->
         <div class="slider-container">
             <div class="slider">
-                <img src="{{ asset('img/children-eating.jpg') }}" alt="Slide 1">
-                <img src="{{ asset('img/happy-children.jpg') }}" alt="Slide 2">
-                <img src="{{ asset('img/children-running.jpg') }}" alt="Slide 3">
+                <img src="{{ asset('img\children-eating.jpg') }}" alt="Slide 1">
+                <img src="{{ asset('img/children-running.jpg') }}" alt="Slide 2">
+                <img src="{{ asset('img/happy-children.jpg') }}" alt="Slide 3">
             </div>
             <div class="slider-content">
                 <h1>Welcome to Dynamic Donations</h1>
