@@ -32,6 +32,10 @@
                     <livewire:chart.admin.pie />
                 </div>
             </div>
+            <div>
+                <x-mary-header title="Payments" separator />
+                <livewire:chart.admin.line />
+            </div>
         </x-slot>
     </x-mary-main>
 </div>

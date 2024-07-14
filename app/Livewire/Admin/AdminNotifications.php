@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Donation;
+use Carbon\Carbon;
 
 
 class AdminNotifications extends Component
@@ -22,6 +23,25 @@ class AdminNotifications extends Component
             ->orderBy('created_at', 'desc')
             ->limit($this->limit)
             ->get();
+
+        $this->checkForStaleDonations();
+    }
+    public function checkForStaleDonations()
+    {
+        $staleDonations = Donation::where('status', 'pending')
+            ->where('created_at', '<=', Carbon::now()->subDays(10))
+            ->get();
+
+        foreach ($staleDonations as $donation) {
+            $this->unseenDonations->prepend($donation);
+        }
+    }
+
+    public function markAsStale($donationId)
+    {
+        $donation = Donation::findOrFail($donationId);
+        $donation->update(['status' => 'stale']);
+        $this->loadUnseenDonations();
     }
 
     public function markAsSeen($donationId)

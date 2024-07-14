@@ -24,46 +24,53 @@
 
     <x-slot:content>
         @forelse($unseenDonations as $donation)
-        <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
-            <div class="flex">
-                <div class="py-1">
-                    <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
-                        <title>Notification Icon</title>
-                        <path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/>
-                    </svg>
-                </div>
-                <div>
-                    <p class="font-bold">New Donation Received!</p>
-                    <p class="text-sm">
-                        A donation of {{ $donation->quantity }} {{ $donation->unit }} was made on {{ $donation->donation_date->format('F j, Y') }}.
-                    </p>
-                    <p class="text-sm mt-2">
-                        <strong>Donated to:</strong> {{ $donation->need->need_name }}
-                    </p>
-                    <p class="text-sm">
-                        <strong>Status:</strong> {{ ucfirst($donation->status) }}
-                    </p>
-                    @if($donation->comments)
-                        <p class="text-sm mt-2">
-                            <strong>Comments:</strong> {{ $donation->comments }}
+            <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
+                <div class="flex">
+                    <div class="py-1">
+                        <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                            <title>Notification Icon</title>
+                            <path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        @if($donation->created_at->diffInDays(now()) >= 10 && $donation->status === 'pending')
+                            <p class="font-bold text-red-600">Donation Pending for 10+ Days!</p>
+                        @else
+                            <p class="font-bold">New Donation Received!</p>
+                        @endif
+                        <p class="text-sm">
+                            A donation of {{ $donation->quantity }} {{ $donation->unit }} was made on {{ $donation->donation_date->format('F j, Y') }}.
                         </p>
-                    @endif
-                    <div class="mt-3">
-                        <a href="{{ route('admin.view-donations', $donation->id) }}" class="text-blue-500 underline mr-4">View Details</a>
-                        <button wire:click="markAsSeen({{ $donation->id }})" class="text-green-500 underline">Mark as Seen</button>
+                        <p class="text-sm mt-2">
+                            <strong>Donated to:</strong> {{ $donation->need->need_name }}
+                        </p>
+                        <p class="text-sm">
+                            <strong>Status:</strong> {{ ucfirst($donation->status) }}
+                        </p>
+                        @if($donation->comments)
+                            <p class="text-sm mt-2">
+                                <strong>Comments:</strong> {{ $donation->comments }}
+                            </p>
+                        @endif
+                        <div class="mt-3">
+                            <a href="{{ route('admin.view-donations', $donation->id) }}" class="text-blue-500 underline mr-4">View Details</a>
+                            @if($donation->created_at->diffInDays(now()) >= 10 && $donation->status === 'pending')
+                                <button wire:click="markAsStale({{ $donation->id }})" class="text-red-500 underline mr-4">Mark as Stale</button>
+                            @endif
+                            <button wire:click="markAsSeen({{ $donation->id }})" class="text-green-500 underline">Mark as Seen</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @empty
             <p>No new donations to show.</p>
         @endforelse
         @if(count($unseenDonations) == $limit)
-        <div class="mt-4">
-            <button wire:click="loadMore" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Load More
-            </button>
-        </div>
+            <div class="mt-4">
+                <button wire:click="loadMore" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Load More
+                </button>
+            </div>
         @endif
     </x-slot:content>
 

@@ -53,6 +53,23 @@
 
             <x-mary-button label="Donate" icon="o-gift" wire:click="openDonationModal" class="btn bg-primary text-white" /> 
       
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold mb-2">Alternatively Donate Money</h3>
+                <div class="flex space-x-2">
+                    <x-mary-button label="$100" wire:click="setDonationAmount(100)" class="btn btn-outline" :class="$donationAmount === 100 ? 'btn-primary' : ''" />
+                    <x-mary-button label="$50" wire:click="setDonationAmount(50)" class="btn btn-outline" :class="$donationAmount === 50 ? 'btn-primary' : ''" />
+                    <x-mary-button label="$20" wire:click="setDonationAmount(20)" class="btn btn-outline" :class="$donationAmount === 20 ? 'btn-primary' : ''" />
+                    <x-mary-button label="Other" wire:click="showCustomAmountInput" class="btn btn-outline" :class="$showCustomAmountInput ? 'btn-primary' : ''" />
+                </div>
+                @if($showCustomAmountInput)
+                    <div class="mt-2">
+                        <x-mary-input label="Custom Amount" type="number" wire:model="donationAmount" placeholder="Enter amount" />
+                    </div>
+                @endif
+                <div class="mt-4">
+                    <x-mary-button label="Proceed to PayPal" wire:click="paypal" class="btn btn-success" :disabled="!$donationAmount" />
+                </div>
+            </div>
 
             <x-mary-modal title="Donate" wire:model="showDonationModal">
                 <x-mary-form wire:submit.prevent="makeDonation">

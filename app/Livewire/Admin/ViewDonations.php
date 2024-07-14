@@ -22,7 +22,6 @@ class ViewDonations extends Component
     public $receiptSent;
     public $comments;
     public $adminApproved;
-    public $tab = 'all';
     public bool $showEditModal = false;
 
     protected $rules = [
@@ -61,28 +60,22 @@ class ViewDonations extends Component
 
     public function update()
     {
-    $this->validate();
+        $this->validate();
 
-    $donation = Donation::findOrFail($this->donationId);
+        $donation = Donation::findOrFail($this->donationId);
 
-    $donation->donation_date = $this->donationDate;
-    $donation->quantity = $this->quantity;
-    $donation->unit = $this->unit;
-    $donation->receipt_sent = $this->receiptSent;
-    $donation->comments = $this->comments;
-    $donation->admin_approved = $this->adminApproved;
-
-    // Change status to completed if admin approved
-    if ($this->adminApproved) {
-        $donation->status = 'completed';
-    } else {
+        $donation->donation_date = $this->donationDate;
+        $donation->quantity = $this->quantity;
+        $donation->unit = $this->unit;
         $donation->status = $this->status;
-    }
+        $donation->receipt_sent = $this->receiptSent;
+        $donation->comments = $this->comments;
+        $donation->admin_approved = $this->adminApproved;
 
-    $donation->save();
+        $donation->save();
 
-    $this->success('Donation updated successfully');
-    $this->showEditModal = false;
+        $this->success('Donation updated successfully');
+        $this->showEditModal = false;
     }
 
     public function approve($id)
@@ -99,21 +92,11 @@ class ViewDonations extends Component
     {
         $this->showEditModal = false;
     }
-    public function setTab($tabName)
-    {
-        $this->tab = $tabName;
-    }
+
     public function render()
     {
-        $query = Donation::with(['user', 'need']);
-
-        if ($this->tab === 'stale') {
-            $query->stale();
-        }
-
-        $donations = $query->paginate(10);
+        $donations = Donation::with(['user', 'need'])->paginate(10);
 
         return view('livewire.admin.view-donations', compact('donations'));
     }
-
 }

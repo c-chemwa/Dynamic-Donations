@@ -16,6 +16,8 @@ class DonateForm extends Component
     public $selectedNeeds = [];
     public $showDonationModal = false;
     public $donations = [];
+    public $donationAmount = 0;
+    public $showCustomAmountInput = false;
 
     public function mount()
     {
@@ -71,10 +73,25 @@ class DonateForm extends Component
         session()->flash('message', 'Your donation has been made successfully. Thank you for your generosity!');
     }
 
+    public function setDonationAmount($amount)
+    {
+        $this->donationAmount = $amount;
+        $this->showCustomAmountInput = false;
+    }
+
+    public function showCustomAmountInput()
+    {
+        $this->showCustomAmountInput = true;
+        $this->donationAmount = '';
+    }
 
     //PAYPAL PAYMENT GATEWAY INTERGRATION
     public function paypal()
     {
+        $this->validate([
+            'donationAmount' => 'required|numeric|min:1',
+        ]);
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -88,8 +105,7 @@ class DonateForm extends Component
                 [
                     "amount" => [
                         "currency_code" => "USD",
-                    //  "value" => $request->amount
-                        "value" => "100"
+                        "value" => number_format($this->donationAmount, 2, '.', '')
                     ]
                 ]
             ]

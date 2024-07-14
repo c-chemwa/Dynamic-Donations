@@ -26,24 +26,29 @@
         {{-- CONTENT --}}
         <x-slot:content>
             <x-mary-header title="NEEDS" with-anchor separator class="text-primary"/>
+            
             <div class="mb-4 flex space-x-4">
-                <x-mary-input wire:model.debounce.300ms="search" placeholder="Search needs..." />
-                <x-mary-select wire:model="needType">
+                <input wire:model.debounce.300ms="search" type="text" placeholder="Search needs..." class="form-input">
+                <select wire:model="needType" class="form-select">
                     <option value="">All Categories</option>
                     @foreach($needTypes as $type)
                         <option value="{{ $type }}">{{ $type }}</option>
                     @endforeach
-                </x-mary-select>
+                </select>
             </div>
-            <x-mary-table :headers="$headers" :rows="$needs" striped >
+
+            <x-mary-table :headers="$headers" :rows="$needs" striped>
                 @foreach($needs as $need)
-                    <div>
-                        <h3>{{ $need->need_name }}</h3>
-                        <p>Quantity required: {{ $need->quantity_required }} {{ $need->unit }}</p>
-                    </div>
+                    <tr>
+                        <td>{{ $need->id }}</td>
+                        <td>{{ $need->need_name }}</td>
+                        <td>{{ $need->quantity_required }}</td>
+                        <td>{{ $need->unit }}</td>
+                        <td>{{ $need->need_type }}</td>
+                    </tr>
                 @endforeach
             </x-mary-table>
-        
+
             <x-mary-button label="Donate" class="btn bg-primary text-white mt-4" wire:click="redirectToDonateForm" />
         </x-slot:content>
     </x-mary-main>

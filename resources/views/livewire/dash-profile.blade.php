@@ -1,5 +1,6 @@
 <div>
     <x-mary-main full-width>
+
         {{-- SIDEBAR --}}
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
             {{-- MENU --}}

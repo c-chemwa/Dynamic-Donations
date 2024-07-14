@@ -41,10 +41,6 @@
             @endphp
 
             <x-mary-header title="DONATIONS" with-anchor separator />
-            <div class="mb-4">
-                <x-mary-button wire:click="setTab('all')" :class="$tab === 'all' ? 'bg-primary' : ''" label="All Donations" />
-                <x-mary-button wire:click="setTab('stale')" :class="$tab === 'stale' ? 'bg-primary' : ''" label="Stale Donations" />
-            </div>
             <x-mary-table :headers="$headers" :rows="$donations" striped>
                 @foreach($donations as $donation)
                     @scope('actions', $donation)
