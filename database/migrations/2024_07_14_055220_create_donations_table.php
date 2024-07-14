@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
                 
-        // Schema::dropIfExists('donations');
+        //Schema::dropIfExists('donations');
 
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('receipt_sent')->default(false);
             $table->text('comments')->nullable();
             $table->boolean('admin_approved')->default(false);
+            $table->boolean('admin_seen')->default(false);
             $table->timestamps();
     
             // Foreign key constraints

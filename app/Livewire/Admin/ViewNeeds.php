@@ -39,20 +39,23 @@ class ViewNeeds extends Component
                 'fulfilled' => 'required',
             ]
         );
-
-        $need = new Need();
-        $need->need_name = $this->needName;
-        $need->quantity_required = $this->quantityRequired;
-        $need->unit = $this->unit;
-        $need->need_type = $this->needType;
-        $need->fulfilled = $this->fulfilled;
-        $need->save();
-
-        $this->resetFields();
-        $this->showCreateModal = false;
-        $this->success('Need created successfully');
-        $this->error('Failed to add need');
-
+    
+        try {
+            $need = new Need();
+            $need->need_name = $this->needName;
+            $need->quantity_required = $this->quantityRequired;
+            $need->unit = $this->unit;
+            $need->need_type = $this->needType;
+            $need->fulfilled = $this->fulfilled;
+            $need->save();
+    
+            $this->resetFields();
+            $this->showCreateModal = false;
+            $this->success('Need created successfully');
+        } catch (\Exception $e) {
+            // Log the error or handle it as needed
+            $this->error('Failed to add need');
+        }
     }
 
     public function edit($id)

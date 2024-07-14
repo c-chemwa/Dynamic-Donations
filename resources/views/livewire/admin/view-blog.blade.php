@@ -11,7 +11,7 @@
             <x-mary-menu-item title="Manage Users" icon="o-eye" link="/admin/view-users" />
                 <x-mary-menu-item title="Manage Donations" icon="o-gift" link="/admin/view-donations" /> <!-- Corrected typo in link -->
                 <x-mary-menu-item title="Manage Needs" icon="o-list-bullet" link="/admin/view-needs" />
-                <x-mary-menu-item title="Managae Blog" icon="o-newspaper" link="/admin/view-blog" />
+                <x-mary-menu-item title="Manage Blog" icon="o-newspaper" link="/admin/view-blog" />
                 <x-mary-menu-item title="Notifications" icon="o-bell" link="/admin/admin-notifications" />
             <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
                 <x-mary-menu-item title="Log out" icon="o-power" link="/logout" />
@@ -23,50 +23,35 @@
     </x-slot:sidebar>
 
     <x-slot name="content">
-        @php
-            $blogss = \App\Models\Blog::all();
-
-            $headers = [
-                ['key' => 'id', 'label' => '#'],
-                ['key' => 'title', 'label' => 'Title'],
-                ['key' => 'content', 'label' => 'Content'],
-                ['key' => 'actions', 'label' => 'Actions'],
-            ];
-        @endphp
 
         <x-mary-header title="BLOGS" with-anchor separator class="text-primary"/>
         <x-mary-button label="Add Blog" icon="o-plus" wire:click="create" class="btn bg-primary text-white" /> 
-        <x-mary-table :headers="$headers" :rows="$blogs" striped >
-            @foreach($blogs as $blog)
-                @scope('actions', $blog)
-                <div class="flex">
-                    @if($blog->photo_path)
-                            <img src="{{ Storage::url($blog->photo_path) }}" alt="{{ $blog->title }}" width="50">
+
+            <div class="grid gap-6 ">
+                @foreach($blogs as $blog)
+                    <div class="shadow-md rounded-lg p-6 w-full flex flex-col">
+                        <h2 class="text-4xl text-primary font-bold mb-4">{{ $blog->title }}</h2>
+                        @if($blog->photo_path)
+                            <img src="{{ Storage::url($blog->photo_path) }}" alt="{{ $blog->title }}" class="w-full h-auto object-cover mb-4 rounded-lg">
                         @endif
-                </div>
-                <div class="flex">
+                        <div class="flex-grow overflow-auto">
+                            <!-- Use nl2br and e for preserving spaces and line breaks -->
+                            <p class="text-gray">{!! nl2br(e($blog->content)) !!}</p>
+                        </div>
+                        <div class="mt-auto flex justify-end gap-2">
+                            <x-mary-button wire:click="edit({{ $blog->id }})" label="Edit" class="btn bg-primary text-white" />
+                            <x-mary-button wire:click="delete({{ $blog->id }})" label="Delete" class="btn btn-warning" />
+                        </div>
+                        {{-- <a href="{{ route('blog-name', $blog->id) }}" class="text-blue-600 hover:text-blue-800 font-semibold mt-auto">Read more</a> --}}
+                    </div>
+                @endforeach
+            </div>
 
-                    <x-mary-button icon="o-trash" wire:click="delete({{ $blog->id }})" spinner class="btn-sm" />
-                    <x-mary-button icon="o-pencil" wire:click="edit({{ $blog->id }})" spinner class="btn-sm" />
-                </div>
-                @endscope
-            @endforeach
-        </x-mary-table>
-
-                    {{-- @foreach($blogs as $blog)
-                        <tr>
-                            <td>{{ $blog->title }}</td>
-                            <td>{{ Str::limit($blog->content, 50) }}</td>
-                            <td>
-                                <x-mary-button icon="o-pencil" wire:click="edit({{ $blog->id }})" class="btn-sm bg-primary" />
-                                <x-mary-button icon="o-trash" wire:click="delete({{ $blog->id }})" class="btn-sm bg-danger" />
-                            </td>
-                        </tr>
-                    @endforeach --}}
+            {{ $blogs->links() }}
         
             <x-mary-modal title="Add Blog" wire:model="showCreateModal">
                 <x-mary-form wire:submit.prevent="store">
-                    <x-mary-input wire:model="title" label="Title" />
+                    <x-mary-input wire:model="title" label="Add Blog" />
                     <x-mary-textarea wire:model="content" label="Content" />
                     <x-mary-file wire:model="photo" label="Photo" />
         

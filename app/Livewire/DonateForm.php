@@ -19,7 +19,12 @@ class DonateForm extends Component
 
     public function mount()
     {
-        $this->needs = Need::all();
+        $this->loadNeeds();
+    }
+
+    public function loadNeeds()
+    {
+        $this->needs = Need::where('fulfilled', false)->get();
     }
 
     public function openDonationModal()

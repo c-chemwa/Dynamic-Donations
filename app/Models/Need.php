@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Need extends Model
 {
@@ -20,5 +21,9 @@ class Need extends Model
         'fulfilled' => 'boolean',
     ];
 
-    protected $table = 'needs'; // Specify the table name explicitly if different from the model name
+    protected $table = 'needs';
+    public function scopeUnfulfilled(Builder $query): void
+    {
+        $query->where('fulfilled', false);
+    }
 }

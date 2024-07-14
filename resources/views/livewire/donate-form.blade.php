@@ -37,8 +37,6 @@
                 ['key' => 'quantity_required', 'label' => 'Need'],
                 ['key' => 'unit', 'label' => 'Unit'],
                 ['key' => 'need_type', 'label' => 'Type'],
-                ['key' => 'fulfilled', 'label' => 'Fulfilled'],
-                ['key' => 'actions', 'label' => 'Actions'],
             ];
             @endphp
 
@@ -47,9 +45,7 @@
                 @foreach($needs as $need)
                     @scope('actions', $need)
                     <div class="flex">
-                        @if(!$need->fulfilled)
-                            <input type="checkbox" wire:model="selectedNeeds" value="{{ $need->id }}">
-                        @endif
+                        <input type="checkbox" wire:model="selectedNeeds" value="{{ $need->id }}">
                     </div>
                     @endscope
                 @endforeach

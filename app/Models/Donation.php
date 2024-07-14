@@ -19,6 +19,7 @@ class Donation extends Model
         'receipt_sent',
         'comments',
         'admin_approved',
+        'admin_seen',
     ];
 
     protected $casts = [
