@@ -1,39 +1,49 @@
-<!-- resources/views/livewire/volunteer-opportunities.blade.php -->
-
 <div>
-    <h1 class="text-3xl font-bold mb-4">Volunteer Opportunities</h1>
+    <x-mary-main full-width>
+        {{-- SIDEBAR --}}
+        <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
+            {{-- MENU --}}
+            <x-mary-menu activate-by-route>
+                {{-- User --}}
+                @if($user = auth()->user())
+                    <x-mary-menu-separator />
+                    <x-mary-list-item :item="$user" value="name" sub-value="email" no-separator no-hover class="-mx-2 !-my-2 rounded"></x-mary-list-item>
+                    <x-mary-menu-separator />
+                @endif
+                <x-mary-menu-item title="Profile" icon="o-eye" link="/dash-profile" />
+                <x-mary-menu-item title="History" icon="o-clock" link="/history" />
+                <x-mary-menu-item title="Notifications" icon="o-bell" link="/notifications" />
+                <x-mary-menu-item title="Donate" icon="o-gift" link="/donate-form" />
+                <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
+                    <x-mary-menu-item title="Log out" icon="o-power" link="/logout" />
+                    <x-mary-menu-item title="Change Theme" icon="o-moon">
+                        <x-mary-theme-toggle darkTheme="coffee" lightTheme="bumblebee" />
+                    </x-mary-menu-item>
+                </x-mary-menu-sub>
+            </x-mary-menu>
+        </x-slot:sidebar>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        @foreach ($activities as $activity)
-            <div class="bg-white p-4 rounded shadow-md">
-                <h2 class="text-lg font-bold mb-2">{{ $activity->title }}</h2>
-                <p class="text-gray-600 mb-2">{{ $activity->date_time }} | {{ $activity->location }}</p>
-                <p>{{ $activity->description }}</p>
-                <button wire:click="signUp({{ $activity->id }})" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Sign Up</button>
+        {{-- CONTENT --}}
+        <x-slot name="content">
+            <div class="container">
+                <h1>Upcoming Volunteer Activities</h1>
+            
+                @if($volunteerActivities->isEmpty())
+                    <p>No upcoming activities at the moment. Please check back later.</p>
+                @else
+                    <ul class="list-group">
+                        @foreach($volunteerActivities as $activity)
+                            <li class="list-group-item">
+                                <h4>{{ $activity->title }}</h4>
+                                <p>{{ $activity->description }}</p>
+                                <p><strong>Date & Time:</strong> {{ $activity->date_time->format('F d, Y h:i A') }}</p>
+                                <p><strong>Location:</strong> {{ $activity->location }}</p>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
-        @endforeach
-    </div>
-
-    <!-- Modal for sign-up form -->
-    @if ($showSignUpModal)
-        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-8 rounded shadow-md max-w-lg mx-auto">
-                <h2 class="text-xl font-bold mb-4">Sign Up for {{ $selectedActivity->title }}</h2>
-                <form wire:submit.prevent="submitSignUp">
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input wire:model="name" type="text" id="name" name="name" class="form-input mt-1 block w-full rounded-md shadow-sm">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input wire:model="email" type="email" id="email" name="email" class="form-input mt-1 block w-full rounded-md shadow-sm">
-                    </div>
-                    <!-- Add more fields as needed (phone number, comments, etc.) -->
-                    <div class="mt-4 flex justify-end">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    @endif
+            
+        </x-slot>
+    </x-mary-main>
 </div>

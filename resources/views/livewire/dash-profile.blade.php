@@ -52,7 +52,7 @@
                     <x-mary-input label.="Address" wire:model="address" />
 
                     <x-slot:actions>
-                        <x-mary-button type="submit" label="Update" class="btn bg-brown-700" />
+                        <x-mary-button type="submit" label="Update" class="btn bg-primary text-white" />
                     </x-slot:actions>
                 </x-mary-form>
 

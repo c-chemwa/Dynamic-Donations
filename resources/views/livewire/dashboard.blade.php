@@ -287,6 +287,7 @@
 
             {{-- Right side actions --}}
             <x-slot:actions>
+                <x-mary-button label="Dashboard" link="{{ route('dashboard') }}" class="btn-ghost btn-sm text-primary" responsive />
                 <x-mary-button label="Need Catalogue" link="{{ route('needs') }}" class="btn-ghost btn-sm text-primary" responsive />
                 <x-mary-button label="Donate" link="{{ route('donate-form') }}" class="btn-ghost btn-sm text-primary" responsive />
                 <x-mary-button label="Blog" link="{{ route('blog-name') }}" class="btn-ghost btn-sm text-primary" responsive />

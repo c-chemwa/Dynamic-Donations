@@ -59,6 +59,8 @@
                     </tr>
                 @endforeach
             </x-mary-table>
+
+            <livewire:generate-receipt :donationId="$donation->id" />
         </x-slot>
     </x-mary-main>
 </div>

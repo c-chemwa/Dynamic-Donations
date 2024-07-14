@@ -31,14 +31,14 @@
                 </div>
             @endif
 
-            @php
+            {{-- @php
             $headers = [
                 ['key' => 'need_name', 'label' => 'Name'],
                 ['key' => 'quantity_required', 'label' => 'Need'],
                 ['key' => 'unit', 'label' => 'Unit'],
                 ['key' => 'need_type', 'label' => 'Type'],
             ];
-            @endphp
+            @endphp --}}
 
             <x-mary-header title="DONATE" with-anchor separator />
             <x-mary-table :headers="$headers" :rows="$needs" striped>

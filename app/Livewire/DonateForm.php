@@ -153,6 +153,15 @@ class DonateForm extends Component
 
     public function render()
     {
-        return view('livewire.donate-form');
+        return view('livewire.donate-form', [
+            'needs' => $this->needs,
+            'headers' => [
+                ['key' => 'id', 'label' => '#'],
+                ['key' => 'need_name', 'label' => 'Need Name'],
+                ['key' => 'quantity_required', 'label' => 'Quantity Required'],
+                ['key' => 'unit', 'label' => 'Unit'],
+                ['key' => 'need_type', 'label' => 'Need Category'],
+            ],
+        ]);
     }
 }
