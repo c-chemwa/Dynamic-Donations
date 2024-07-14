@@ -57,7 +57,7 @@ Route::get('/', function () {
     Route::get('/dash-profile', DashProfile::class)->name('dash-profile');
     Route::get('/history', History::class)->name('history');
     Route::get('/needs', Needs::class)->name('needs');
-    Route::get('/blog-name', BlogName::class)->name('blog-name');
+    Route::get('/blog-name', BlogName::class)->name('blog');
     Route::get('/notifications', Notifications::class)->name('notifications');
     Route::get('/donate-form', DonateForm::class)->name('donate-form');
     Route::get('/volunteering', VolunteerOpportunities::class)->name('volunteering');

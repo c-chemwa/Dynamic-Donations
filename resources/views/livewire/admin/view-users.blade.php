@@ -39,55 +39,55 @@
                 ['key' => 'address', 'label' => 'Address'],
                 ['key' => 'actions', 'label' => 'Actions'],
             ];
-        @endphp
+            @endphp
 
-        <x-mary-header title="USERS" with-anchor separator class="text-primary"/>
+            <x-mary-header title="USERS" with-anchor separator class="text-primary"/>
 
-        <x-mary-button label="Add User" icon="o-plus" wire:click="create" class="btn bg-primary text-white" /> 
-        <x-mary-table :headers="$headers" :rows="$users" striped >
-            @foreach($users as $user)
-                @scope('actions', $user)
-                <div class="flex">
-                    <x-mary-button icon="o-trash" wire:click="delete({{ $user->id }})" spinner class="btn-sm" />
-                    <x-mary-button icon="o-pencil" wire:click="edit({{ $user->id }})" spinner class="btn-sm" />
-                </div>
-                @endscope
-            @endforeach
-        </x-mary-table>
+            <x-mary-button label="Add User" icon="o-plus" wire:click="create" class="btn bg-primary text-white" /> 
+            <x-mary-table :headers="$headers" :rows="$users" striped >
+                @foreach($users as $user)
+                    @scope('actions', $user)
+                    <div class="flex">
+                        <x-mary-button icon="o-trash" wire:click="delete({{ $user->id }})" spinner class="btn-sm" />
+                        <x-mary-button icon="o-pencil" wire:click="edit({{ $user->id }})" spinner class="btn-sm" />
+                    </div>
+                    @endscope
+                @endforeach
+            </x-mary-table>
 
-        <x-mary-modal title="Add User" wire:model="showCreateModal">
-            <x-mary-form wire:submit.prevent="store">
-                <x-mary-input wire:model="name" label="Name" />
-                <x-mary-input wire:model="email" label="E-mail Address" />
-                <x-mary-input wire:model="usertype" label="User Type" />
-                <x-mary-input wire:model="phone" label="Phone" />
-                <x-mary-input wire:model="address" label="Address" />
-                <x-mary-input wire:model="password" label="Password" type="password" />
-                <x-mary-input wire:model="password_confirmation" label="Confirm Password" type="password" />
+            <x-mary-modal title="Add User" wire:model="showCreateModal">
+                <x-mary-form wire:submit.prevent="store">
+                    <x-mary-input wire:model="name" label="Name" />
+                    <x-mary-input wire:model="email" label="E-mail Address" />
+                    <x-mary-input wire:model="usertype" label="User Type" />
+                    <x-mary-input wire:model="phone" label="Phone" />
+                    <x-mary-input wire:model="address" label="Address" />
+                    <x-mary-input wire:model="password" label="Password" type="password" />
+                    <x-mary-input wire:model="password_confirmation" label="Confirm Password" type="password" />
 
-                <x-slot:actions>
-                    <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
-                    <x-mary-button type="submit" class="btn btn-success" label="Save" />
-                </x-slot:actions>
-            </x-mary-form>
-        </x-mary-modal>
+                    <x-slot:actions>
+                        <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
+                        <x-mary-button type="submit" class="btn btn-success" label="Save" />
+                    </x-slot:actions>
+                </x-mary-form>
+            </x-mary-modal>
 
-        <x-mary-modal title="Edit User" wire:model="showEditModal">
-            <x-mary-form wire:submit.prevent="update">
-                <x-mary-input wire:model="name" label="Name" />
-                <x-mary-input wire:model="email" label="E-mail Address" />
-                <x-mary-input wire:model="usertype" label="User Type" />
-                <x-mary-input wire:model="phone" label="Phone" />
-                <x-mary-input wire:model="address" label="Address" />
-                <x-mary-input wire:model="password" label="Password" type="password" />
-                <x-mary-input wire:model="password_confirmation" label="Confirm Password" type="password" />
+            <x-mary-modal title="Edit User" wire:model="showEditModal">
+                <x-mary-form wire:submit.prevent="update">
+                    <x-mary-input wire:model="name" label="Name" />
+                    <x-mary-input wire:model="email" label="E-mail Address" />
+                    <x-mary-input wire:model="usertype" label="User Type" />
+                    <x-mary-input wire:model="phone" label="Phone" />
+                    <x-mary-input wire:model="address" label="Address" />
+                    <x-mary-input wire:model="password" label="Password" type="password" />
+                    <x-mary-input wire:model="password_confirmation" label="Confirm Password" type="password" />
 
-                <x-slot:actions>
-                    <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
-                    <x-mary-button type="submit" class="btn btn-success" label="Save" />
-                </x-slot:actions>
-            </x-mary-form>
-        </x-mary-modal>
-    </x-slot>
+                    <x-slot:actions>
+                        <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
+                        <x-mary-button type="submit" class="btn btn-success" label="Save" />
+                    </x-slot:actions>
+                </x-mary-form>
+            </x-mary-modal>
+        </x-slot>
     </x-mary-main>
 </div>

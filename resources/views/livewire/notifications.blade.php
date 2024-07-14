@@ -31,26 +31,59 @@
         
         {{-- CONTENT --}}
         <x-slot:content>
-            @foreach($notifications as $notification)
-                <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
-                    <div class="flex">
-                        <div class="py-1">
-                            <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-bold">Your Donation has been Received!</p>
-                            <p class="text-sm">
-                                Thank you so much for your generosity. 
-                                <a href="{{ route('history') }}" class="text-blue-500 underline">Click here to view details.</a>
+            @php
+            $notifications = \App\Models\Donation::where('user_id', auth()->id())
+                                ->where('admin_approved', true)
+                                ->where('status', 'completed')
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+            @endphp
+
+            @forelse($notifications as $notification)
+            <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mt-4" role="alert">
+                <div class="flex">
+                    <div class="py-1">
+                        <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                            <title>Notification Icon</title>
+                            <path d="M9 12v-2c0-.553-.585-1-1-1-.416 0-1 .447-1 1v2c0 .553.584 1 1 1 .415 0 1-.447 1-1zm1-6.105V6c0 .553.585 1 1 1 .416 0 1-.447 1-1V5.895c1.165-.413 2-1.51 2-2.895 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.385.835 2.482 2 2.895zM10 18c4.418 0 8-3.582 8-8H2c0 4.418 3.582 8 8 8z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold">Your Donation has been Approved!</p>
+                        <p class="text-sm">
+                            Thank you for your donation of {{ $notification->quantity }} {{ $notification->unit }} on {{ $notification->donation_date->format('F j, Y') }}.
+                        </p>
+                        <p class="text-sm mt-2">
+                            <strong>Donated:</strong> {{ $notification->need->need_name }}
+                        </p>
+                        <p class="text-sm">
+                            <strong>Status:</strong> {{ ucfirst($notification->status) }}
+                        </p>
+                        @if($notification->comments)
+                            <p class="text-sm mt-2">
+                                <strong>Comments:</strong> {{ $notification->comments }}
                             </p>
+                        @endif
+                        <div class="mt-3">
+                            <a href="{{ route('history') }}" class="text-blue-500 underline mr-4">View Details</a>
+                            <button wire:click="markAsRead({{ $notification->id }})" class="text-green-500 underline">Mark as Read</button>
                         </div>
                     </div>
                 </div>
-            @endforeach
-
+            </div>
+            @empty
+                <p>No approved donations to show.</p>
+            @endforelse
+            @if(count($notifications) == $limit)
+            <div class="mt-4">
+                <button wire:click="loadMore" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Load More
+                </button>
+            </div>
+            @endif
         </x-slot:content>
+        
+        {{-- FOOTER --}}
         {{-- <x-slot:content>
             
 

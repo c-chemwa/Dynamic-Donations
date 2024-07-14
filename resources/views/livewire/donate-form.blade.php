@@ -25,110 +25,57 @@
 
         {{-- CONTENT --}}
         <x-slot:content>
-            {{-- <div class="container mx-auto p-8">
-                <h2 class="text-primary text-5xl mb-8 font-chalkduster">Donate</h2>
-                <form wire:submit.prevent="submit" class="space-y-6">
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label for="needs" class="label text-primary">Item</label>
-                            <select id="needs" wire:model="selectedNeed" class="select select-bordered w-full text-black">
-                                <option value="" class="text-gray">Select an item</option>
-                                @foreach($needs as $need)
-                                    <option value="{{ $need->id }}">{{ $need->need_name }}</option>
-                                @endforeach
-                            </select>
-                            @error('selectedNeed') <span class="text-red-500">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="w-full md:w-1/2 px-3">
-                            <label for="quantity" class="label text-primary">Quantity</label>
-                            <input type="number" id="quantity" wire:model="quantity" class="input input-bordered w-full text-white" required>
-                            @error('quantity') <span class="text-red-500">{{ $message }}</span> @enderror
-                        </div>
+            @if (session()->has('message'))
+                <div class="alert alert-success mb-4">
+                    {{ session('message') }}
+                </div>
+            @endif
+
+            @php
+            $headers = [
+                ['key' => 'need_name', 'label' => 'Name'],
+                ['key' => 'quantity_required', 'label' => 'Need'],
+                ['key' => 'unit', 'label' => 'Unit'],
+                ['key' => 'need_type', 'label' => 'Type'],
+                ['key' => 'fulfilled', 'label' => 'Fulfilled'],
+                ['key' => 'actions', 'label' => 'Actions'],
+            ];
+            @endphp
+
+            <x-mary-header title="DONATE" with-anchor separator />
+            <x-mary-table :headers="$headers" :rows="$needs" striped>
+                @foreach($needs as $need)
+                    @scope('actions', $need)
+                    <div class="flex">
+                        @if(!$need->fulfilled)
+                            <input type="checkbox" wire:model="selectedNeeds" value="{{ $need->id }}">
+                        @endif
                     </div>
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label for="unit" class="label text-primary">Unit</label>
-                            <input type="text" id="unit" wire:model="unit" class="input input-bordered w-full text-white" placeholder="e.g., pieces, kilograms">
-                            @error('unit') <span class="text-red-500">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="w-full md:w-1/2 px-3">
-                            <label for="donation_date" class="label text-primary">Date</label>
-                            <input type="date" id="donation_date" wire:model="donationDate" class="input input-bordered w-full text-black" required>
-                            @error('donationDate') <span class="text-red-500">{{ $message }}</span> @enderror
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <label for="comments" class="label text-secondary">
-                            <span class="label-text">Comments</span>
-                        </label>
-                        <textarea id="comments" wire:model="comments" class="textarea textarea-bordered w-full text-secondary" placeholder="Your comments here..."></textarea>
-                        @error('comments') <span class="text-red-500">{{ $message }}</span> @enderror
-                    </div>
-                    
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-                        Submit
-                    </button>
-                </form>
+                    @endscope
+                @endforeach
+            </x-mary-table>
 
-                <div class="form-control mt-4">
-                    <form action="{{ route('paypal') }}" method="POST">
-                        @csrf
-                        <button class="btn bg-blue-800 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" type="submit">
-                            Pay with PayPal
-                        </button>
-                    </form>
-                </div>  
+            <x-mary-button label="Donate" icon="o-gift" wire:click="openDonationModal" class="btn bg-primary text-white" /> 
+      
 
-                
-                @if (session()->has('message'))
-                    <div class="alert alert-success mt-4">
-                        {{ session('message') }}
-                    </div>
-                @endif
-            </div> --}}
+            <x-mary-modal title="Donate" wire:model="showDonationModal">
+                <x-mary-form wire:submit.prevent="makeDonation">
+                    @foreach($selectedNeeds as $needId)
+                        <h3 class="text-lg font-semibold mb-2">{{ $needs->firstWhere('id', $needId)->need_name }}</h3>
+                        <x-mary-input label="Donation Date" type="date" wire:model="donations.{{ $needId }}.donation_date" />
+                        <x-mary-input label="Quantity" type="number" wire:model="donations.{{ $needId }}.quantity" />
+                        <x-mary-input label="Unit" wire:model="donations.{{ $needId }}.unit" />
+                        <x-mary-input label="Comments" type="textarea" wire:model="donations.{{ $needId }}.comments" />
+                        <hr class="my-4">
+                    @endforeach
 
-            <!-- donate-form.blade.php -->
-
-<!-- resources/views/livewire/donate-form.blade.php -->
-        {{-- <div>
-            <h2>Donate to {{ $selectedNeed->need_name }}</h2>
-
-            <form wire:submit.prevent="submitDonation">
-                <!-- Donation form fields -->
-                <div>
-                    <label for="donation_date">Donation Date</label>
-                    <input type="date" id="donation_date" wire:model.defer="donation_date">
-                    @error('donation_date') <span class="error">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" wire:model.defer="quantity">
-                    @error('quantity') <span class="error">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <label for="unit">Unit</label>
-                    <input type="text" id="unit" wire:model.defer="unit">
-                    @error('unit') <span class="error">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <label for="comments">Comments</label>
-                    <textarea id="comments" wire:model.defer="comments"></textarea>
-                    @error('comments') <span class="error">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
-                    <button type="submit" class="btn-primary">Donate</button>
-                    <button type="button" wire:click="donateAnotherItem">Donate Another Item</button>
-                </div>
-            </form>
-        </div> --}}
-        Be like water. 
-
+                    <x-slot:actions>
+                        <x-mary-button wire:click="closeDonationModal" class="btn btn-primary" spinner label="Cancel" />
+                        <x-mary-button type="submit" class="btn btn-success" label="Donate" />
+                    </x-slot:actions>
+                </x-mary-form>
+            </x-mary-modal>
         </x-slot:content>
-
-        
     </x-mary-main>
+
 </div>
