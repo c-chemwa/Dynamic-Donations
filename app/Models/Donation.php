@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Donation extends Model
 {
@@ -38,5 +39,10 @@ class Donation extends Model
     public function need()
     {
         return $this->belongsTo(Need::class, 'need_id');
+    }
+    public function scopeStale($query)
+    {
+        return $query->where('admin_approved', false)
+                     ->where('created_at', '<=', Carbon::now()->subDays(10));
     }
 }

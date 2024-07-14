@@ -9,6 +9,8 @@ class Needs extends Component
 {
     
     public $needs;
+    public $search = '';
+    public $needType = '';
     public function mount()
     {
         $this->loadNeeds();
@@ -16,7 +18,26 @@ class Needs extends Component
 
     public function loadNeeds()
     {
-        $this->needs = Need::where('fulfilled', false)->get();
+        $query = Need::where('fulfilled', false);
+
+        if ($this->search) {
+            $query->where('need_name', 'like', '%' . $this->search . '%');
+        }
+
+        if ($this->needType) {
+            $query->where('need_type', $this->needType);
+        }
+
+        $this->needs = $query->get();
+    }
+    public function updatedSearch()
+    {
+        $this->loadNeeds();
+    }
+
+    public function updatedNeedType()
+    {
+        $this->loadNeeds();
     }
     public function redirectToDonateForm()
     {
@@ -25,6 +46,8 @@ class Needs extends Component
 
     public function render()
     {
+        $needTypes = Need::distinct('need_type')->pluck('need_type');
+
         return view('livewire.needs', [
             'needs' => $this->needs,
             'headers' => [
@@ -34,6 +57,7 @@ class Needs extends Component
                 ['key' => 'unit', 'label' => 'Unit'],
                 ['key' => 'need_type', 'label' => 'Need Category'],
             ],
+            'needTypes' => $needTypes,
         ]);
     }
 }

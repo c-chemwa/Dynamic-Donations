@@ -41,6 +41,10 @@
             @endphp
 
             <x-mary-header title="DONATIONS" with-anchor separator />
+            <div class="mb-4">
+                <x-mary-button wire:click="setTab('all')" :class="$tab === 'all' ? 'bg-primary' : ''" label="All Donations" />
+                <x-mary-button wire:click="setTab('stale')" :class="$tab === 'stale' ? 'bg-primary' : ''" label="Stale Donations" />
+            </div>
             <x-mary-table :headers="$headers" :rows="$donations" striped>
                 @foreach($donations as $donation)
                     @scope('actions', $donation)
@@ -60,11 +64,16 @@
                     <x-mary-input wire:model="donationDate" label="Donation Date" type="date" />
                     <x-mary-input wire:model="quantity" label="Quantity" />
                     <x-mary-input wire:model="unit" label="Unit" />
-                    <x-mary-input wire:model="status" label="Status" />
+                    @if(!$adminApproved)
+                        <x-mary-input wire:model="status" label="Status" />
+                    @endif
                     <x-mary-input wire:model="receiptSent" label="Receipt Sent" type="checkbox" />
                     <x-mary-input wire:model="comments" label="Comments" type="textarea" />
                     <x-mary-input wire:model="adminApproved" label="Admin Approved" type="checkbox" />
-
+                    @if($adminApproved)
+                        <p class="text-success">When approved, status will be set to completed.</p>
+                    @endif
+            
                     <x-slot:actions>
                         <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
                         <x-mary-button type="submit" class="btn btn-success" label="Save" />

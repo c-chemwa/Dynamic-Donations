@@ -26,6 +26,15 @@
         {{-- CONTENT --}}
         <x-slot:content>
             <x-mary-header title="NEEDS" with-anchor separator class="text-primary"/>
+            <div class="mb-4 flex space-x-4">
+                <x-mary-input wire:model.debounce.300ms="search" placeholder="Search needs..." />
+                <x-mary-select wire:model="needType">
+                    <option value="">All Categories</option>
+                    @foreach($needTypes as $type)
+                        <option value="{{ $type }}">{{ $type }}</option>
+                    @endforeach
+                </x-mary-select>
+            </div>
             <x-mary-table :headers="$headers" :rows="$needs" striped >
                 @foreach($needs as $need)
                     <div>

@@ -18,12 +18,12 @@ class Bar extends Component
         // Query the database for donation counts by status
         $pendingCount = Donation::where('status', 'pending')->count();
         $completedCount = Donation::where('status', 'completed')->count();
-        $rejectedCount = Donation::where('status', 'rejected')->count();
+        $staleCount = Donation::where('status', 'stale')->count();
 
         // Prepare the data for the chart
         $data = [
-            'labels' => ['Pending', 'Completed', 'Rejected'],
-            'data' => [$pendingCount, $completedCount, $rejectedCount],
+            'labels' => ['Pending', 'Completed', 'Stale'],
+            'data' => [$pendingCount, $completedCount, $staleCount],
         ];
 
         return $data;

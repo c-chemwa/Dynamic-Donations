@@ -11,8 +11,7 @@ use App\Livewire\Needs;
 use App\Livewire\BlogName;
 use App\Livewire\Notifications;
 use App\Livewire\DonateForm;
-use App\Livewire\VolunteerSignUp;
-use App\Livewire\VolunteerOpportunities;
+use App\Livewire\Volunteering;
 
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Admin\ViewBlog;
@@ -23,6 +22,7 @@ use App\Livewire\Admin\AddUser;
 use App\Livewire\Admin\ViewDonations;
 use App\Livewire\Admin\AddDonation;
 use App\Livewire\Admin\AdminNotifications;
+use App\Livewire\Admin\VolunteerActivities;
 
 
 
@@ -49,6 +49,7 @@ Route::get('/', function () {
     Route::get('admin/add-need', AddNeed::class)->name('admin.add-need');
     Route::get('admin/view-blog', ViewBlog::class)->name('admin.view-blog');
     Route::get('admin/admin-notifications', AdminNotifications::class)->name('admin.admin-notifications');
+    Route::get('admin/volunteer-activities', VolunteerActivities::class)->name('admin.volunteer-activities');
     });
 
 
@@ -60,8 +61,7 @@ Route::get('/', function () {
     Route::get('/blog-name', BlogName::class)->name('blog-name');
     Route::get('/notifications', Notifications::class)->name('notifications');
     Route::get('/donate-form', DonateForm::class)->name('donate-form');
-    Route::get('/volunteering', VolunteerOpportunities::class)->name('volunteering');
-    Route::get('/volunteer-sign-up', VolunteerSignUp::class)->name('volunteer-sign-up');
+    Route::get('/volunteering', Volunteering::class)->name('volunteering');
     });
 
 
