@@ -2,7 +2,7 @@
 
 Empowering children's homes with efficient donation management.
 
-![Dynamic Donations Logo](public/logo/dynamic_donations_logo.png)
+![Dynamic Donations Logo](public/img/logo-text-white.png)
 
 ## Table of Contents
 
@@ -24,12 +24,12 @@ Dynamic Donations is a comprehensive donation management system designed specifi
 
 * Efficient tracking of monetary and in-kind donations.
 * Detailed donor profiles with donation history.
-* Automated receipt generation and thank-you emails.
+* Automated receipt generation.
 * Custom reporting tools for financial oversight.
 * Integration with PayPal for secure payment processing.
 * Event planning and volunteer coordination modules.
 
-![Dynamic Donations Screen Shot](https://example.com)
+<!-- ![Dynamic Donations Screen Shot](https://example.com) -->
 
 ### Built With
 
