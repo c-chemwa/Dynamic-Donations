@@ -1,4 +1,19 @@
 <div>
+    <x-mary-nav sticky full-width>
+        <x-slot:brand>
+            <label for="main-drawer" class="lg:hidden mr-3">
+                <x-mary-icon name="o-bars-3" class="cursor-pointer" />
+            </label>
+            <div class="text-primary">Dynamic Donations</div>
+        </x-slot:brand>
+
+        <x-slot:actions>
+            <x-mary-button label="Dashboard" link="{{ route('admin.dashboard') }}" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Volunteer Activities" link="{{ route('admin.volunteer-activities') }}" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Blog" link="{{ route('admin.view-blog') }}" class="btn-ghost btn-sm text-primary" responsive />
+        </x-slot:actions>
+    </x-mary-nav>
+
     <x-mary-main full-width>
     <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
         <x-mary-menu activate-by-route>
@@ -9,7 +24,7 @@
                 <x-mary-menu-separator />
             @endif
             <x-mary-menu-item title="Manage Users" icon="o-eye" link="/admin/view-users" />
-            <x-mary-menu-item title="Manage Donations" icon="o-gift" link="/admin/view-donations" /> <!-- Corrected typo in link -->
+            <x-mary-menu-item title="Manage Donations" icon="o-gift" link="/admin/view-donations" />
             <x-mary-menu-item title="Manage Needs" icon="o-list-bullet" link="/admin/view-needs" />
             <x-mary-menu-item title="Manage Blog" icon="o-newspaper" link="/admin/view-blog" />
             <x-mary-menu-item title="Notifications" icon="o-bell" link="/admin/admin-notifications" />
@@ -44,8 +59,8 @@
             @foreach($needs as $need)
                 @scope('actions', $need)
                 <div class="flex">
-                    <x-mary-button icon="o-trash" wire:click="delete({{ $need->id }})" class="btn-sm bg-primary" />
-                    <x-mary-button icon="o-pencil" wire:click="edit({{ $need->id }})" class="btn-sm bg-primary" />
+                    <x-mary-button icon="o-trash" wire:click="delete({{ $need->id }})" class="btn-sm " />
+                    <x-mary-button icon="o-pencil" wire:click="edit({{ $need->id }})" class="btn-sm " />
                 </div>
                 @endscope
             @endforeach
@@ -60,7 +75,7 @@
                 <x-mary-input wire:model="fulfilled" label="Fulfilled" />
 
                 <x-slot:actions>
-                    <x-mary-button wire:click="closeModal" class="btn btn-primary" spinner label="Cancel" />
+                    <x-mary-button wire:click="closeModal" class="btn " spinner label="Cancel" />
                     <x-mary-button type="submit" class="btn btn-success" spinner label="Save" />
                 </x-slot:actions>
             </x-mary-form>
@@ -78,10 +93,32 @@
                     <x-mary-button wire:click="closeModal" class="btn btn-primary" label="Cancel" />
                     <x-mary-button type="submit" class="btn btn-success" label="Save" />
                 </x-slot:actions>
-        
             </x-mary-form>
         </x-mary-modal>
 
+        <!-- Footer -->
+        <footer class="w-full mt-5 bg-primary text-white px-4 py-8 rounded-lg">
+            <div class="container mx-auto flex flex-wrap justify-between items-start">
+                <div class="footer-logo mb-4 md:mb-0 w-full md:w-1/3">
+                    <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="max-h-48 w-auto">
+                </div>
+                <div class="footer-links mb-4 md:mb-0 w-full md:w-1/3">
+                    <ul class="list-none p-0 m-0 flex flex-col space-y-2">
+                        <li><a href="{{ route('dashboard') }}" class="text-white hover:underline font-['American_Typewriter']">Dashboard</a></li>
+                        <li><a href="{{ route('needs') }}" class="text-white hover:underline font-['American_Typewriter']">Need Catalogue</a></li>
+                        <li><a href="{{ route('donate-form') }}" class="text-white hover:underline font-['American_Typewriter']">Donate</a></li>
+                        <li><a href="{{ route('blog-name') }}" class="text-white hover:underline font-['American_Typewriter']">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-location text-right w-full md:w-1/3">
+                    <p class="mb-1 font-['Telugu_MN']">Address: 123 Strathmore University, Nairobi, Kenya</p>
+                    <p class="mb-1 font-['Telugu_MN']">Email: <a href="mailto:info@dynamicdonations.com" class="text-white hover:underline">info@dynamicdonations.com</a></p>
+                    <p class="mb-1 font-['Telugu_MN']">Phone: <a href="tel:+254712345678" class="text-white hover:underline">+254 (0) 712 345 678</a></p>
+                    <p class="mb-1 font-['Telugu_MN']">Copyright Wendy Lagho, Caleb Chemwa</p>
+                    <p class="font-['Telugu_MN']">All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
     </x-slot>
     
     </x-mary-main>

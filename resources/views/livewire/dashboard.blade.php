@@ -416,7 +416,7 @@
                     <!-- Footer -->
                     <footer class="footer">
                         <div class="footer-logo">
-                            <img src="{{ asset('img/dynamic_donations_logo') }}" alt="Logo">
+                            <img src="{{ asset('img/logo-white.png') }}" alt="Logo">
                         </div>
                         <div class="footer-links">
                             <ul>

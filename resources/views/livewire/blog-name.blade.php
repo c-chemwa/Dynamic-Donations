@@ -1,4 +1,20 @@
 <div>
+    <x-mary-nav sticky full-width>
+        <x-slot:brand>
+            <label for="main-drawer" class="lg:hidden mr-3">
+                <x-mary-icon name="o-bars-3" class="cursor-pointer" />
+            </label>
+            <div class="text-primary">Dynamic Donations</div>
+        </x-slot:brand>
+
+        <x-slot:actions>
+            <x-mary-button label="Dashboard" link="{{ route('dashboard') }}" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Need Catalogue" link="{{ route('needs') }}" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Donate" link="{{ route('donate-form') }}" class="btn-ghost btn-sm text-primary" responsive />
+            <x-mary-button label="Blog" link="{{ route('blog-name') }}" class="btn-ghost btn-sm text-primary" responsive />
+        </x-slot:actions>
+    </x-mary-nav>
+
     <x-mary-main full-width>
         {{-- SIDEBAR --}}
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
@@ -43,32 +59,30 @@
             </div>
         
             {{ $blogs->links() }}
+
+            <!-- Footer -->
+            <footer class="w-full mt-5 bg-primary text-white px-4 py-8 rounded-lg">
+                <div class="container mx-auto flex flex-wrap justify-between items-start">
+                    <div class="footer-logo mb-4 md:mb-0 w-full md:w-1/3">
+                        <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="max-h-48 w-auto">
+                    </div>
+                    <div class="footer-links mb-4 md:mb-0 w-full md:w-1/3">
+                        <ul class="list-none p-0 m-0 flex flex-col space-y-2">
+                            <li><a href="{{ route('dashboard') }}" class="text-white hover:underline font-['American_Typewriter']">Dashboard</a></li>
+                            <li><a href="{{ route('needs') }}" class="text-white hover:underline font-['American_Typewriter']">Need Catalogue</a></li>
+                            <li><a href="{{ route('donate-form') }}" class="text-white hover:underline font-['American_Typewriter']">Donate</a></li>
+                            <li><a href="{{ route('blog-name') }}" class="text-white hover:underline font-['American_Typewriter']">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-location text-right w-full md:w-1/3">
+                        <p class="mb-1 font-['Telugu_MN']">Address: 123 Strathmore University, Nairobi, Kenya</p>
+                        <p class="mb-1 font-['Telugu_MN']">Email: <a href="mailto:info@dynamicdonations.com" class="text-white hover:underline">info@dynamicdonations.com</a></p>
+                        <p class="mb-1 font-['Telugu_MN']">Phone: <a href="tel:+254712345678" class="text-white hover:underline">+254 (0) 712 345 678</a></p>
+                        <p class="mb-1 font-['Telugu_MN']">Copyright Wendy Lagho, Caleb Chemwa</p>
+                        <p class="font-['Telugu_MN']">All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </x-slot>
-        
-        {{-- CONTENT
-        <x-slot:content>
-            <div class="max-w-4xl mx-auto py-8">
-                <h1 class="text-3xl font-bold mb-4 text-primary">Our Journey: Nurturing Hope and Happiness</h1>
-                <img src="{{ asset('img/children-running.jpg') }}" alt="Impact Story" class="rounded-lg shadow-md mb-6">
-                <p class="mb-4 text-secondary">
-                    Your generous donations empower us to create a nurturing environment where every child can thrive. At our children's home, we aim to provide not just the essentials, but also the love and care that every child deserves.
-                </p>
-                <p class="mb-4 text-secondary">
-                    This month, we are excited to share the story of Joshua, a ten-year-old boy who found a new beginning with us. Joshua came to our home after losing his parents and struggling with feelings of abandonment and fear. Thanks to your contributions, we have been able to offer Joshua a safe and loving environment, along with the support he needs to heal and grow.
-                </p>
-                <p class="mb-4 text-secondary">
-                    "The children's home has become my family," Joshua says with a smile. "Here, I have friends to play with and people who care about me. I feel safe and happy again."
-                </p>
-                <p class="mb-4 text-secondary">
-                    Stories like Joshua's are a testament to the profound impact your donations have. Every contribution, whether big or small, helps us provide food, education, healthcare, and emotional support to children who need it most.
-                </p>
-                <p class="mb-4 text-secondary">
-                    Together, we can continue to transform lives and build a brighter future for the children at our home. Your support is the cornerstone of our mission to nurture hope and happiness in every child's heart.
-                </p>
-                <a href="/donate-form" class="inline-block bg-primary text-white px-6 py-2 rounded hover:bg-primary-dark transition">Support Our Children</a>
-            </div>
-            
-            
-        </x-slot:content> --}}
     </x-mary-main>
 </div>
