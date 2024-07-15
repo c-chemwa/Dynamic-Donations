@@ -287,10 +287,14 @@
 
             {{-- Right side actions --}}
             <x-slot:actions>
-                <x-mary-button label="Dashboard" link="{{ route('dashboard') }}" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="Need Catalogue" link="{{ route('needs') }}" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="Donate" link="{{ route('donate-form') }}" class="btn-ghost btn-sm text-primary" responsive />
-                <x-mary-button label="Blog" link="{{ route('blog-name') }}" class="btn-ghost btn-sm text-primary" responsive />
+                <x-mary-button label="Dashboard" link="{{ route('dashboard') }}" class="btn-ghost btn-sm text-primary"
+                    responsive />
+                <x-mary-button label="Need Catalogue" link="{{ route('needs') }}" class="btn-ghost btn-sm text-primary"
+                    responsive />
+                <x-mary-button label="Donate" link="{{ route('donate-form') }}" class="btn-ghost btn-sm text-primary"
+                    responsive />
+                <x-mary-button label="Blog" link="{{ route('blog-name') }}" class="btn-ghost btn-sm text-primary"
+                    responsive />
                 {{-- <x-mary-button label="Contact Us" link="#Contact-Us" class="btn-ghost btn-sm text-primary" responsive /> --}}
             </x-slot:actions>
         </x-mary-nav>
@@ -337,25 +341,30 @@
 
                     <div class="help-children">
                         <h2>Help Children in Thomas Barnardo</h2>
-                        <p>At Dynamic Donations, we're committed to improving the lives of children at Thomas Barnardo. 
-                        Every child deserves a chance to thrive, and your support makes a real difference. 
-                        From providing essential resources to creating safe spaces for learning and growth, 
-                        your contributions help us build a brighter future for these deserving young ones. 
-                        Join us in our mission to nurture, protect, and empower the children who need it most.</p>
+                        <p>At Dynamic Donations, we're committed to improving the lives of children at Thomas Barnardo.
+                            Every child deserves a chance to thrive, and your support makes a real difference.
+                            From providing essential resources to creating safe spaces for learning and growth,
+                            your contributions help us build a brighter future for these deserving young ones.
+                            Join us in our mission to nurture, protect, and empower the children who need it most.</p>
                     </div>
 
 
                     <div class="our-work">
                         <h2>Our Work For The Children</h2>
                         <div class="our-work-text">
-                            <p>At Dynamic Donations, we focus on providing comprehensive support to children in need. 
-                            Our programs span across education, healthcare, nutrition, and emotional well-being.</p>
-                            <p>We believe in creating lasting change by addressing both immediate needs and long-term development. 
-                            This includes everything from supplying school materials to offering counseling services.</p>
-                            <p>Our dedicated team works tirelessly to ensure that every child receives personalized care and attention. 
-                            We collaborate with local communities to create sustainable solutions that empower children and families.</p>
-                            <p>Through your generous donations, we've been able to expand our reach and impact, 
-                            touching more lives each year. Your support fuels our ongoing efforts to give every child a fair start in life.</p>
+                            <p>At Dynamic Donations, we focus on providing comprehensive support to children in need.
+                                Our programs span across education, healthcare, nutrition, and emotional well-being.</p>
+                            <p>We believe in creating lasting change by addressing both immediate needs and long-term
+                                development.
+                                This includes everything from supplying school materials to offering counseling
+                                services.</p>
+                            <p>Our dedicated team works tirelessly to ensure that every child receives personalized care
+                                and attention.
+                                We collaborate with local communities to create sustainable solutions that empower
+                                children and families.</p>
+                            <p>Through your generous donations, we've been able to expand our reach and impact,
+                                touching more lives each year. Your support fuels our ongoing efforts to give every
+                                child a fair start in life.</p>
                         </div>
 
                         <div class="our-work-stats">
@@ -389,31 +398,37 @@
                             <div class="help-text1">
                                 <img src="{{ asset('img/baby-in-classroom.jpg') }}" alt="">
                                 <p class="donate-link"><a href="{{ route('donate-form') }}">Donate</a></p>
-                                <p>Your financial support can make a world of difference. Whether it's a one-time gift or a monthly commitment, 
-                                every donation helps us provide essential resources, fund educational programs, and ensure proper care for the children.</p>
+                                <p>Your financial support can make a world of difference. Whether it's a one-time gift
+                                    or a monthly commitment,
+                                    every donation helps us provide essential resources, fund educational programs, and
+                                    ensure proper care for the children.</p>
                             </div>
 
                             <div class="help-text2">
                                 <img src="{{ asset('img/ben-koor-cute-baby.jpg') }}" alt="">
                                 <p class="needs-link"><a href="{{ route('needs') }}">Browse Needs</a></p>
-                                <p>Explore our current needs catalog to see specific items or services required by the children. 
-                                From school supplies to medical equipment, your targeted contributions directly address pressing needs.</p>
+                                <p>Explore our current needs catalog to see specific items or services required by the
+                                    children.
+                                    From school supplies to medical equipment, your targeted contributions directly
+                                    address pressing needs.</p>
                             </div>
-                    
+
                             <div class="help-text3">
                                 <img src="{{ asset('img/children-running.jpg') }}" alt="">
                                 <p class="join-link"><a href="{{ route('volunteering') }}">Join Team</a></p>
-                                <p>Become a part of our volunteer team and make a hands-on impact. Whether you can offer your time, skills, or expertise, 
-                                there are numerous ways to get involved and directly support our mission to help children.</p>
+                                <p>Become a part of our volunteer team and make a hands-on impact. Whether you can offer
+                                    your time, skills, or expertise,
+                                    there are numerous ways to get involved and directly support our mission to help
+                                    children.</p>
                             </div>
-                            
+
                         </div>
                     </div>
 
                     <!-- Footer -->
                     <footer class="footer">
                         <div class="footer-logo">
-                            <img src="{{ asset('img/logo-white.png') }}" alt="Logo">
+                            <img src="{{ asset('img/logo-text-white.png') }}" alt="Logo">
                         </div>
                         <div class="footer-links">
                             <ul>

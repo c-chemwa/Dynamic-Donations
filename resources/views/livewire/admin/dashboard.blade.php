@@ -62,8 +62,8 @@
                 <footer class="w-full mt-5 bg-primary text-white px-4 py-8 rounded-lg">
                     <div class="container mx-auto flex flex-wrap justify-between items-start">
                         <div class="footer-logo mb-4 md:mb-0 w-full md:w-1/3" style="height = 30px">
-                            <img src="{{ asset('img/logo-white.png') }}" alt="Logo" class="max-h-48 w-auto"
-                                style="max-width: 20px !important; max-height: 20px !important; width: auto !important; height: auto !important;">
+                            <img src="{{ asset('img/logo-text-white.png') }}" alt="Logo" class="max-h-48 w-auto"
+                                style="max-width: 200px !important; max-height: 200px !important; width: auto !important; height: auto !important;">
                         </div>
                         <div class="footer-links mb-4 md:mb-0 w-full md:w-1/3">
                             <ul class="list-none p-0 m-0 flex flex-col space-y-2">
