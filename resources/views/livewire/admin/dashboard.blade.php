@@ -40,16 +40,16 @@
             <div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <x-mary-header title="Donations" separator />
+                        <x-mary-header title="Donations" class="text-primary" />
                         <livewire:chart.admin.bar />
                     </div>
                     <div>
-                        <x-mary-header title="Users" separator />
+                        <x-mary-header title="Users" class="text-primary" />
                         <livewire:chart.admin.pie />
                     </div>
                 </div>
                 <div>
-                    <x-mary-header title="Payments" separator />
+                    <x-mary-header title="Payments" class="text-primary" separator />
                     <livewire:chart.admin.line />
                 </div>
 

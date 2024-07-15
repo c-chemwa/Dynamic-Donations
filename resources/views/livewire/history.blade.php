@@ -58,7 +58,7 @@
             ];
             @endphp
         
-            <x-mary-header title="DONATIONS" with-anchor separator />
+            <x-mary-header title="DONATIONS" with-anchor separator class="text-primary"/>
             <x-mary-table :headers="$headers" :rows="$donations" striped>
                 @foreach($donations as $donation)
                     <tr>

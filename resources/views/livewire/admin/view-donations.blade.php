@@ -55,7 +55,7 @@
             ];
             @endphp
 
-            <x-mary-header title="DONATIONS" with-anchor separator />
+            <x-mary-header title="DONATIONS" class="text-primary" separator />
             <x-mary-table :headers="$headers" :rows="$donations" striped>
                 @foreach($donations as $donation)
                     @scope('actions', $donation)

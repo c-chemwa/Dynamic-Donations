@@ -337,25 +337,25 @@
 
                     <div class="help-children">
                         <h2>Help Children in Thomas Barnardo</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Iusto sunt, numquam qui molestiae soluta explicabo error corrupti adipisci
-                            corporis eius dolore accusantium possimus consequatur exercitationem a doloribus,
-                            illo mollitia quae ipsa modi rem! Necessitatibus tenetur beatae doloribus officia accusamus
-                            iste!</p>
+                        <p>At Dynamic Donations, we're committed to improving the lives of children at Thomas Barnardo. 
+                        Every child deserves a chance to thrive, and your support makes a real difference. 
+                        From providing essential resources to creating safe spaces for learning and growth, 
+                        your contributions help us build a brighter future for these deserving young ones. 
+                        Join us in our mission to nurture, protect, and empower the children who need it most.</p>
                     </div>
 
 
                     <div class="our-work">
-                        <h2> Our Work For The Children</h2>
+                        <h2>Our Work For The Children</h2>
                         <div class="our-work-text">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Rem unde maiores facere illum est nisi odio molestias obcaecati at autem.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Quos blanditiis tempore molestias suscipit a, soluta illum iure mollitia.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Laudantium sequi ullam quasi reiciendis, deserunt dignmos iure Aut natus.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Eius minus fuga provident optio nesciunt debitis quam ipse iur voluptates!</p>
+                            <p>At Dynamic Donations, we focus on providing comprehensive support to children in need. 
+                            Our programs span across education, healthcare, nutrition, and emotional well-being.</p>
+                            <p>We believe in creating lasting change by addressing both immediate needs and long-term development. 
+                            This includes everything from supplying school materials to offering counseling services.</p>
+                            <p>Our dedicated team works tirelessly to ensure that every child receives personalized care and attention. 
+                            We collaborate with local communities to create sustainable solutions that empower children and families.</p>
+                            <p>Through your generous donations, we've been able to expand our reach and impact, 
+                            touching more lives each year. Your support fuels our ongoing efforts to give every child a fair start in life.</p>
                         </div>
 
                         <div class="our-work-stats">
@@ -365,19 +365,19 @@
                             </div>
                             <div class="stat-item">
                                 <img src="{{ asset('img/ribbon.png') }}" alt="">
-                                <p>Protected 124,492 children from harm</p>
+                                <p>Provided education to 98,765 children</p>
                             </div>
                             <div class="stat-item">
                                 <img src="{{ asset('img/heart.png') }}" alt="">
-                                <p>Protected 124,492 children from harm</p>
+                                <p>Offered counseling to 45,678 children</p>
                             </div>
                             <div class="stat-item">
                                 <img src="{{ asset('img/cross.png') }}" alt="">
-                                <p>Protected 124,492 children from harm</p>
+                                <p>Provided healthcare to 78,901 children</p>
                             </div>
                             <div class="stat-item">
                                 <img src="{{ asset('img/plate-n-knife.png') }}" alt="">
-                                <p>Protected 124,492 children from harm</p>
+                                <p>Ensured nutrition for 112,233 children</p>
                             </div>
                         </div>
                     </div>
@@ -389,27 +389,24 @@
                             <div class="help-text1">
                                 <img src="{{ asset('img/baby-in-classroom.jpg') }}" alt="">
                                 <p class="donate-link"><a href="{{ route('donate-form') }}">Donate</a></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident amet optio
-                                    voluptate
-                                    rerum vitae est aperiam sint itaque quo eveniet nemo perferendis eius cumque.</p>
+                                <p>Your financial support can make a world of difference. Whether it's a one-time gift or a monthly commitment, 
+                                every donation helps us provide essential resources, fund educational programs, and ensure proper care for the children.</p>
                             </div>
 
                             <div class="help-text2">
                                 <img src="{{ asset('img/ben-koor-cute-baby.jpg') }}" alt="">
                                 <p class="needs-link"><a href="{{ route('needs') }}">Browse Needs</a></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident amet optio
-                                    voluptate
-                                    rerum vitae est aperiam sint itaque quo eveniet nemo perferendis eius cumque.</p>
+                                <p>Explore our current needs catalog to see specific items or services required by the children. 
+                                From school supplies to medical equipment, your targeted contributions directly address pressing needs.</p>
                             </div>
-
+                    
                             <div class="help-text3">
                                 <img src="{{ asset('img/children-running.jpg') }}" alt="">
                                 <p class="join-link"><a href="{{ route('volunteering') }}">Join Team</a></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident amet optio
-                                    voluptate
-                                    rerum vitae est aperiam sint itaque quo eveniet nemo perferendis eius cumque.</p>
+                                <p>Become a part of our volunteer team and make a hands-on impact. Whether you can offer your time, skills, or expertise, 
+                                there are numerous ways to get involved and directly support our mission to help children.</p>
                             </div>
-
+                            
                         </div>
                     </div>
 

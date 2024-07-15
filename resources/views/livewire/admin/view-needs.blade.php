@@ -52,7 +52,7 @@
         ];
         @endphp
 
-        <x-mary-header title="NEEDS" with-anchor separator />
+        <x-mary-header title="NEEDS" class="text-primary" with-anchor separator />
         <x-mary-button label="Add Need" icon="o-plus" wire:click="create" class="btn bg-primary text-white" /> 
 
         <x-mary-table :headers="$headers" :rows="$needs" striped>

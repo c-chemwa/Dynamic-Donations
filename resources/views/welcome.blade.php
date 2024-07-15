@@ -139,6 +139,9 @@
             background-color: #96663e;
             color: #fff;
             margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+            margin-right: 30px;
             border-radius: 5px;
         }
 
@@ -649,10 +652,8 @@
                         <!-- Testimonial content for the first card -->
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 1" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,
-                                omnis repudiandae hic nobis aliquid. Ut, obcaecati deleniti. magni architecto labore
-                                molestias,
-                                lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,"</p>
+                            <p>"Dynamic Donations has made it so easy to contribute to causes I care about. Their platform is user-friendly and I 
+                                always know exactly where my donations are going. It's truly empowering to see the impact of my contributions."</p>
                             <p class="testimonial-author">- John Doe</p>
                         </div>
                     </div>
@@ -661,11 +662,9 @@
                         <!-- Testimonial content for the second card -->
                         <img src="{{ asset('img/prof-pic-specs.png') }}" alt="Profile 2" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
-                            <p class="testimonial-author">- Jack Doe</p>
+                            <p>"As a frequent donor, I appreciate the transparency and efficiency of Dynamic Donations. They've streamlined the donation 
+                                process and provide regular updates on how funds are being used. It's a trustworthy platform that I highly recommend."</p>
+                            <p class="testimonial-author">- Jack Smith</p>
                         </div>
                     </div>
 
@@ -673,10 +672,8 @@
                         <!-- Testimonial content for the third card -->
                         <img src="{{ asset('img/anime-prof-pic.png') }}" alt="Profile 3" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"I've been using Dynamic Donations for over a year now, and I'm impressed by their commitment to connecting donors with worthy causes. 
+                                The variety of donation options and the ability to track my contributions have made giving back a more engaging experience."</p>
                             <p class="testimonial-author">- Mike Johnson</p>
                         </div>
                     </div>
@@ -684,10 +681,8 @@
                     <div class="testimonial-card">
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 4" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"Dynamic Donations has transformed the way I think about charitable giving. Their platform educates donors about various causes and makes 
+                                it simple to support multiple organizations. It's a fantastic way to maximize the impact of your donations."</p>
                             <p class="testimonial-author">- Sarah Wilson</p>
                         </div>
                     </div>
@@ -695,10 +690,8 @@
                     <div class="testimonial-card">
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 5" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"As someone new to regular charitable giving, I found Dynamic Donations incredibly helpful. They offer guidance on choosing causes and provide 
+                                clear information on how donations are used. It's given me confidence in my philanthropy efforts."</p>
                             <p class="testimonial-author">- Alex Johnson</p>
                         </div>
                     </div>
@@ -708,10 +701,8 @@
                         <!-- Testimonial content for the first card -->
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 1" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,
-                                omnis repudiandae hic nobis aliquid. Ut, obcaecati deleniti. magni architecto labore
-                                molestias,
-                                lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem non,"</p>
+                            <p>"Dynamic Donations has made it so easy to contribute to causes I care about. Their platform is user-friendly and I 
+                                always know exactly where my donations are going. It's truly empowering to see the impact of my contributions."</p>
                             <p class="testimonial-author">- John Doe</p>
                         </div>
                     </div>
@@ -720,10 +711,8 @@
                         <!-- Testimonial content for the second card -->
                         <img src="{{ asset('img/prof-pic-specs.png') }}" alt="Profile 2" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"As a frequent donor, I appreciate the transparency and efficiency of Dynamic Donations. They've streamlined the donation 
+                                process and provide regular updates on how funds are being used. It's a trustworthy platform that I highly recommend."</p>
                             <p class="testimonial-author">- Jack Doe</p>
                         </div>
                     </div>
@@ -732,10 +721,8 @@
                         <!-- Testimonial content for the third card -->
                         <img src="{{ asset('img/anime-prof-pic.png') }}" alt="Profile 3" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"I've been using Dynamic Donations for over a year now, and I'm impressed by their commitment to connecting donors with worthy causes. 
+                                The variety of donation options and the ability to track my contributions have made giving back a more engaging experience."</p>
                             <p class="testimonial-author">- Mike Johnson</p>
                         </div>
                     </div>
@@ -743,10 +730,8 @@
                     <div class="testimonial-card">
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 4" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"Dynamic Donations has transformed the way I think about charitable giving. Their platform educates donors about various causes and makes 
+                                it simple to support multiple organizations. It's a fantastic way to maximize the impact of your donations."</p>
                             <p class="testimonial-author">- Sarah Wilson</p>
                         </div>
                     </div>
@@ -754,10 +739,8 @@
                     <div class="testimonial-card">
                         <img src="{{ asset('img/plain-prof-pic.png') }}" alt="Profile 5" class="profile-picture">
                         <div class="testimonial-text">
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea
-                                rerum doloremque ipsam tenetur excepturi quas iusto error fugit magni architecto labore
-                                molestias,
-                                voluptatum sit. Quod eum nemo corrupti excepturi."</p>
+                            <p>"As someone new to regular charitable giving, I found Dynamic Donations incredibly helpful. They offer guidance on choosing causes and provide 
+                                clear information on how donations are used. It's given me confidence in my philanthropy efforts."</p>
                             <p class="testimonial-author">- Alex Johnson</p>
                         </div>
                     </div>

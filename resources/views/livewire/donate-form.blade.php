@@ -47,7 +47,7 @@
                 </div>
             @endif
 
-            <x-mary-header title="DONATE" with-anchor separator />
+            <x-mary-header title="DONATE" with-anchor separator class="text-primary"/>
             <x-mary-table :headers="$headers" :rows="$needs" striped>
                 @foreach($needs as $need)
                     @scope('actions', $need)
