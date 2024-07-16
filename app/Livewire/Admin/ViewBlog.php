@@ -58,7 +58,7 @@ class ViewBlog extends Component
         $this->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB Max
+            'photo' => 'image|mimes:jpeg,png,jpg,gif', // 2MB Max
         ]);
 
         $blog = Blog::find($this->blogId);
