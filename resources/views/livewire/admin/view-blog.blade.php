@@ -46,7 +46,7 @@
 
         <x-slot name="content">
 
-            <x-mary-header title="BLOGS" with-anchor separator class="text-primary" />
+            <x-mary-header title="BLOGS" with-anchor separator class="text-primary font-['Telugu_MN']" />
             <x-mary-button label="Add Blog" icon="o-plus" wire:click="create" class="btn bg-primary text-white" />
 
             <div class="grid gap-6 ">
